@@ -1,1 +1,8 @@
 https://git-scm.com/book/vi/v1/
+
+git clone https://github.com/khai-dv/BanHang.git
+CD BanHang
+git add .
+git commit -m "content comment"
+git push -u origin master
+git pull
