@@ -54,7 +54,7 @@ export class ProductService {
 	addItem(product : IProduct){
 		let headers = new Headers({ 'Content-Type': 'application/json' });
     	let options = new RequestOptions({ headers: headers });
-		return this._httpService.post(this.apiUrl,user,options)
+		return this._httpService.post(this.apiUrl,product,options)
 								.map(this.extractData)								
 								.catch(this.handleError);							
 	}
@@ -62,7 +62,7 @@ export class ProductService {
 	editItem(id : number, product : IProduct){
 		let headers = new Headers({ 'Content-Type': 'application/json' });
     	let options = new RequestOptions({ headers: headers });
-		return this._httpService.put(this.apiUrl + id,user,options)
+		return this._httpService.put(this.apiUrl + id,product,options)
 								.map(this.extractData)
 								.catch(this.handleError);		
 	}
@@ -76,7 +76,7 @@ export class ProductService {
 	addInfo(product : IProduct){
 		let headers = new Headers({ 'Content-Type': 'application/json' });
     	let options = new RequestOptions({ headers: headers });
-		return this._httpService.post(this.apiUrl,user,options)
+		return this._httpService.post(this.apiUrl,product,options)
 								.map(this.extractData)
 								.catch(this.handleError);
 	}
