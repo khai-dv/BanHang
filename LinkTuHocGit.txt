@@ -6,3 +6,13 @@ git add .
 git commit -m "content comment"
 git push -u origin master
 git pull
+
+git branch
+git checkout -b new_branch
+git checkout master
+git checkout new_branch
+git branch -d new_branch
+git branch -d the_local_branch
+git push origin :the_remote_branch
+git push origin --delete the_remote_branch
+git fetch -p
