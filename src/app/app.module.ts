@@ -11,6 +11,8 @@ import { UpperComponent } from './Header/upper.header';
 import { AboutUsComponent } from './About_us/about_us';
 import { BodyComponent } from './Body/body';
 
+import { routing } from './app.routing';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,7 @@ import { BodyComponent } from './Body/body';
   imports: [
     BrowserModule,
     FormsModule,
+    routing,
     HttpModule
   ],
   providers: [],
