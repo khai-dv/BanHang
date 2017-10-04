@@ -15,11 +15,6 @@ import { ProductsComponent } from './Products/products.component';
 import { ProductDetailsComponent } from './Product_details/product_details.component';
 import { CartComponent } from './Cart/cart.component';
 
-
-@NgModule({
-  declarations: [
-    AppComponent, 
-
 @NgModule({
   declarations: [
     AppComponent,
