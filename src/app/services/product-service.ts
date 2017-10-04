@@ -15,7 +15,7 @@ export class ProductService {
 	// Post Add Item : http://58e605d279739c1200ed3c82.mockapi.io/api/users/
 	// Put Edit Item : http://58e605d279739c1200ed3c82.mockapi.io/api/users/:id
 	// Delete Item : http://58e605d279739c1200ed3c82.mockapi.io/api/users/:id
-	private apiUrl = 'http://595b3ea8c985be0011f66772.mockapi.io/users/'
+	private apiUrl = 'http://59d448b95803340011fd5f25.mockapi.io/products/'	
 
 	constructor(
 		private _httpService : Http
