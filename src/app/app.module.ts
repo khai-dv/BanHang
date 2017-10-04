@@ -4,16 +4,22 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer';
-import { ClientsComponent } from './clients';
-import { HeaderComponent } from './header';
+import { FooterComponent } from './Footer/footer';
+import { ClientsComponent } from './Footer/clients';
+import { HeaderComponent } from './Header/header';
+import { UpperComponent } from './Header/upper.header';
+import { AboutUsComponent } from './About_us/about_us';
+import { BodyComponent } from './Body/body';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     ClientsComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpperComponent,
+    BodyComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
