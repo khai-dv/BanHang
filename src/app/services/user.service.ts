@@ -5,17 +5,17 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-import { IProduct } from '../defines/product.interface';
+import { IUser } from '../defines/user.interface';
 
 @Injectable()
-export class ProductService {
+export class UserService {
 	
 	// Get All : http://58e605d279739c1200ed3c82.mockapi.io/api/users/
 	// Get one : http://58e605d279739c1200ed3c82.mockapi.io/api/users/:id
 	// Post Add Item : http://58e605d279739c1200ed3c82.mockapi.io/api/users/
 	// Put Edit Item : http://58e605d279739c1200ed3c82.mockapi.io/api/users/:id
 	// Delete Item : http://58e605d279739c1200ed3c82.mockapi.io/api/users/:id
-	private apiUrl = 'http://595b3ea8c985be0011f66772.mockapi.io/users/'
+	private apiUrl = 'http://59d448b95803340011fd5f25.mockapi.io/users/'
 
 	constructor(
 		private _httpService : Http
@@ -39,19 +39,19 @@ export class ProductService {
 		return Observable.throw(errMsg);
 	}
 
-	getItems() : Observable<IProduct[]>{
+	getItems() : Observable<IUser[]>{
 		return this._httpService.get(this.apiUrl)
 								.map(this.extractData)
 								.catch(this.handleError);
 	}
 
-	getItem(id : number) : Observable<IProduct>{
+	getItem(id : number) : Observable<IUser>{
 		return this._httpService.get(this.apiUrl + id)
 								.map(this.extractData)
 								.catch(this.handleError);
 	}
 
-	addItem(product : IProduct){
+	addItem(product : IUser){
 		let headers = new Headers({ 'Content-Type': 'application/json' });
     	let options = new RequestOptions({ headers: headers });
 		return this._httpService.post(this.apiUrl,product,options)
@@ -59,7 +59,7 @@ export class ProductService {
 								.catch(this.handleError);							
 	}
 
-	editItem(id : number, product : IProduct){
+	editItem(id : number, product : IUser){
 		let headers = new Headers({ 'Content-Type': 'application/json' });
     	let options = new RequestOptions({ headers: headers });
 		return this._httpService.put(this.apiUrl + id,product,options)
@@ -73,7 +73,7 @@ export class ProductService {
 								.catch(this.handleError);
 	}
 
-	addInfo(product : IProduct){
+	addInfo(product : IUser){
 		let headers = new Headers({ 'Content-Type': 'application/json' });
     	let options = new RequestOptions({ headers: headers });
 		return this._httpService.post(this.apiUrl,product,options)
