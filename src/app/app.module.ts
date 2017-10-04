@@ -8,6 +8,8 @@ import { FooterComponent } from './footer';
 import { ClientsComponent } from './clients';
 import { HeaderComponent } from './header';
 
+import { routing } from './app.routing';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +20,7 @@ import { HeaderComponent } from './header';
   imports: [
     BrowserModule,
     FormsModule,
+    routing,
     HttpModule
   ],
   providers: [],
