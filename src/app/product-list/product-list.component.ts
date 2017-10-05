@@ -4,8 +4,9 @@ import { IProduct } from '../defines/product.interface';
 import { ProductService } from '../services/product.service';
 
 @Component({
-    moduleId: module.id,
-    templateUrl: 'product-list.component'
+    selector: 'app-product-list',
+    templateUrl: './product-list.component.html',
+    providers: [ProductService] 
 })
 
 
@@ -14,7 +15,7 @@ export class ProductListComponent implements OnInit {
 
     _listFilter: string;
     filteredProducts: IProduct[];
-    products: IProduct[] = [];
+    products: IProduct[] ;
 
     get listFilter(): string {
         return this._listFilter;
@@ -33,7 +34,7 @@ export class ProductListComponent implements OnInit {
         return this.products.filter((product: IProduct) =>
                 product.product_name.toLocaleLowerCase().indexOf(filterBy) !== -1);
     }
-
+    
     ngOnInit(): void {
         this._productService.getItems()
                 .subscribe(products => {
@@ -42,4 +43,6 @@ export class ProductListComponent implements OnInit {
                 },
                     error => this.errorMessage = <any>error);
     }
+    
+    
 }
