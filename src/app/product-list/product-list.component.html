@@ -1,7 +1,7 @@
 <div class="span9">
 	<div class="well well-small">
 
-		<div class="row-fluid" *ngFor ="let pro of products">	  
+		<div class="row-fluid" *ngFor ="let pro of products | paginate: {itemsPerPage: 5, currentPage:page, id: '1'}; let i = index">	  
 			<div class="span2">
 				<img src="{{pro.imageUrl}}" alt="">
 			</div>
@@ -23,31 +23,14 @@
 				</div>
 				</form>
 			</div>
+
 		</div>
 		<hr class="soften">
 	</div>
-
-	<!-- items being paged -->
-	<div *ngFor="let item of pagedItems">{{item.name}}</div>
-	
-	<!-- pager -->
-	<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-		<li [ngClass]="{disabled:pager.currentPage === 1}">
-			<a (click)="setPage(1)">First</a>
-		</li>
-		<li [ngClass]="{disabled:pager.currentPage === 1}">
-			<a (click)="setPage(pager.currentPage - 1)">Previous</a>
-		</li>
-		<li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-			<a (click)="setPage(page)">{{page}}</a>
-		</li>
-		<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-			<a (click)="setPage(pager.currentPage + 1)">Next</a>
-		</li>
-		<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-			<a (click)="setPage(pager.totalPages)">Last</a>
-		</li>
-	</ul>
-	
+	<pagination-controls (pageChange)="page = $event" id="1"
+		maxSize="5"
+		directionLinks="true"
+		autoHide="true">
+  	</pagination-controls>
 </div>
 
