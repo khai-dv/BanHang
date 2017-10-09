@@ -1,0 +1,94 @@
+<!-- 
+Body Section 
+-->
+<div class="row">
+    <div id="sidebar" class="span3">
+
+        <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+            <li class="active">Registration</li>
+        </ul>
+        <h3> Registration</h3>	
+        <hr class="soft"/>
+        <div class="well">
+        <form class="form-horizontal" name="form" (ngSubmit)="userForm.form.valid && register()" #userForm="ngForm" novalidate >
+            <div class="control-group">
+                <div class="controls">
+                    <img src="assets/img/facebook.png" alt="" style="height: 40px; width: 220px;" >
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                <img src="assets/img/google.jpg" alt="" style="height: 40px; width: 220px;">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputFname">Your name <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="inputUname" placeholder="Your name" 
+                        required
+                        [(ngModel)]="model.username" name="username"
+                        #username="ngModel">
+
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                        class="form-danger">
+                        <div *ngIf="username.errors.required">
+                        Username is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Email <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" placeholder="Email" 
+                           required
+                           [(ngModel)]="model.email" name="email"
+                           #email="ngModel"> 
+    
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                            class="form-danger">
+                        <div *ngIf="email.errors.required">
+                        Email is required.
+                        </div>
+                    </div>
+
+                </div>
+            </div>	  
+            <div class="control-group">
+                <label class="control-label">Password <sup>*</sup></label>
+                <div class="controls">
+                    <input type="password" placeholder="Password" 
+                           required
+                           minlength="4"
+                           [(ngModel)]="model.password" name="password"
+                           #password="ngModel">
+
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                           class="form-danger">
+                      
+                        <div *ngIf="password.errors.required">
+                        Password is required.
+                        </div>
+                        <div *ngIf="password.errors.minlength">
+                        Password must be at least 4 characters long.
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+    
+            <div class="control-group">
+                <div class="controls">
+                <input type="submit" name="submitAccount" value="Register" class="exclusive shopBtn">
+                <a routerLink="login" routerLinkActive="active">Cancel</a> 
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

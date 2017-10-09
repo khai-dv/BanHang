@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 
 import { IProduct } from '../defines/product.interface';
 import { ProductService } from '../services/product.service';
+import { AlertService } from '../services/alert.service';
 
 @Component({
     selector: 'app-product-list',
     templateUrl: './product-list.component.html',
-    providers: [ProductService] 
+    providers: [ProductService, AlertService] 
 })
 
 
 export class ProductListComponent implements OnInit {  
 
-    errorMessage: string;
+    namepage = "productlist";
 
     _listFilter: string;
     filteredProducts: IProduct[];
@@ -26,9 +27,8 @@ export class ProductListComponent implements OnInit {
         this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
     }
 
-    constructor(private _productService: ProductService) {
-        
-    }
+    constructor(private _productService: ProductService,
+                private alertService: AlertService) {}
 
     performFilter(filterBy: string): IProduct[] {
         filterBy = filterBy.toLocaleLowerCase();
@@ -43,7 +43,9 @@ export class ProductListComponent implements OnInit {
                     this.products = products;
                     this.filteredProducts = this.products;
                 },
-                    error => this.errorMessage = <any>error);
+                error => {
+                    this.alertService.error(error);
+                });
     }
     
 }

@@ -3917,6 +3917,11 @@ input[type="submit"].btn.btn-mini {
   border-color: #eed3d7;
 }
 
+.form-danger,
+.form-danger {
+  color: #b94a48;
+}
+
 .alert-danger h4,
 .alert-error h4 {
   color: #b94a48;

@@ -9,9 +9,19 @@
 	<!--<app-body *ngIf="show"></app-body>
 	<app-about-us *ngIf="show"></app-about-us>-->
 
-	<!--<app-body></app-body>-->
-	<app-product-list></app-product-list>
+	<div *ngIf="namepage == 'index'">
+	<app-body ></app-body>
+	</div>
 
+	<div *ngIf="namepage == 'productlist'">
+	<app-product-list ></app-product-list>
+	</div>
+
+	<div *ngIf="namepage == 'register'">
+		<app-register ></app-register>
+	</div>
+
+	{{namepage}}
 	<!-- <app-about-us></app-about-us> -->
 
 	<!-- Clients -->

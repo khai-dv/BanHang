@@ -18,8 +18,8 @@ import { routing } from './app.routing';
 import { ProductsComponent } from './Products/products.component';
 import { ProductDetailsComponent } from './Product_details/product_details.component';
 import { CartComponent } from './Cart/cart.component';
-import { ProductListComponent } from './product-list/product-list.component';
-
+import { ProductListComponent } from './product-list/index';
+import { RegisterComponent } from './register/index';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     ProductsComponent, 
     ProductDetailsComponent, 
     CartComponent,
-    ProductListComponent
+    ProductListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
