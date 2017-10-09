@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { IProduct } from '../defines/product.interface';
 import { ProductService } from '../services/product.service';
@@ -27,7 +28,8 @@ export class ProductListComponent implements OnInit {
         this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
     }
 
-    constructor(private _productService: ProductService,
+    constructor(private router: Router,
+                private _productService: ProductService,
                 private alertService: AlertService) {}
 
     performFilter(filterBy: string): IProduct[] {
@@ -46,6 +48,10 @@ export class ProductListComponent implements OnInit {
                 error => {
                     this.alertService.error(error);
                 });
+    }
+
+    gotoProductList(): void {
+        this.router.navigate(['productlist']);
     }
     
 }
