@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { IProduct } from '../defines/product.interface';
 import { ProductService } from '../services/product.service';
 import { AlertService } from '../services/alert.service';
+import { AppGlobals } from '../app.globals';
 
 @Component({
     selector: 'app-product-list',
@@ -29,8 +30,11 @@ export class ProductListComponent implements OnInit {
     }
 
     constructor(private router: Router,
-                private _productService: ProductService,
-                private alertService: AlertService) {}
+                private productService: ProductService,
+                private alertService: AlertService,
+                public mygb : AppGlobals) {
+                    this.mygb.shareObj['namepage']='productlist';
+                }
 
     performFilter(filterBy: string): IProduct[] {
         filterBy = filterBy.toLocaleLowerCase();
@@ -39,7 +43,7 @@ export class ProductListComponent implements OnInit {
     }
     
     ngOnInit(): void {
-        this._productService.getItems()
+        this.productService.getItems()
                 .subscribe(products => {
                     // set items to json response
                     this.products = products;
@@ -53,5 +57,4 @@ export class ProductListComponent implements OnInit {
     gotoProductList(): void {
         this.router.navigate(['productlist']);
     }
-    
 }

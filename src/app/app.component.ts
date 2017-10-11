@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule, Routes  } from '@angular/router';
+import { AppGlobals } from './app.globals';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,7 @@ import { RouterModule, Routes  } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  namepage ="index";
+  constructor (public mygb : AppGlobals){
+    this.mygb.shareObj['namepage']='index';
+  }
 }

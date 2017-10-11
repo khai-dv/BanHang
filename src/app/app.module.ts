@@ -18,7 +18,7 @@ import { ProductListComponent } from './product-list/index';
 import { RegisterComponent } from './register/index';
 import { BodyComponent } from './Body/body';
 import { SidebarComponent } from './Body/sidebar';
-//import { ProductComponent } from './Body/product';
+import { AppGlobals } from './app.globals';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { SidebarComponent } from './Body/sidebar';
     HttpModule,
     Ng2PaginationModule
   ],
-  providers: [],
+  providers: [AppGlobals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
