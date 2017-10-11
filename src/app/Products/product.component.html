@@ -1,0 +1,19 @@
+<li class="span4">
+    <div class="thumbnail">
+    <a href="../Product-details/product-details.component.html" class="overlay"></a>
+    <a class="zoomTool" href="../Product-details/product-details.component.html" title="add to cart"><span class="icon-search"></span>QUICK VIEW</a>
+    <a href="app/product-details/product-details.component.html"><img src="{{product.imageUrl}}" alt=""></a>
+    <div class="caption cntr">
+    <!--<a [routerLink]="['detail/'{{product.product_id}}]">{{product.product_name}}</a>-->
+    <p>{{product.product_name}}</p>
+    <p><strong>{{product.price}}</strong></p>
+    <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+    <div class="actionList">
+        <a class="pull-left" href="#"> Add to Wish List </a> 
+        <a class="pull-left" href="#"> Add to Compare </a>
+    </div> 
+    <br class="clr">
+    </div>
+    </div>
+</li>
+<!--<router-outlet></router-outlet>-->

@@ -11,8 +11,10 @@ import { ClientsComponent } from './Footer/clients';
 import { HeaderComponent } from './Header/header';
 import { UpperComponent } from './Header/upper.header';
 import { AboutUsComponent } from './About_us/about_us';
-import { ProductsComponent } from './Products/products.component';
-import { ProductDetailsComponent } from './Product_details/product_details.component';
+import { ProductComponent } from './Products/product.component';
+// import { ProductsComponent } from './Products/products.component';
+import { ThreeColComponent } from './Three-Col/three-col.component';
+import { ProductDetailsComponent } from './Product-details/product-details.component';
 import { CartComponent } from './Cart/cart.component';
 import { ProductListComponent } from './product-list/index';
 import { RegisterComponent } from './register/index';
@@ -27,12 +29,14 @@ import { AppGlobals } from './app.globals';
     ClientsComponent,
     HeaderComponent, UpperComponent,    
     AboutUsComponent,
-    ProductsComponent, 
+    ProductComponent, 
+    // ProductsComponent, 
+    ThreeColComponent,
     ProductDetailsComponent, 
     CartComponent,
     ProductListComponent,
     RegisterComponent,
-    BodyComponent, SidebarComponent, 
+    BodyComponent, SidebarComponent 
     //ProductComponent
   ],
   imports: [
