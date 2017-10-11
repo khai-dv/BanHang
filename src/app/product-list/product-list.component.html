@@ -1,36 +1,40 @@
-<div class="span9">
-	<div class="well well-small">
-
-		<div class="row-fluid" *ngFor ="let pro of products | paginate: {itemsPerPage: 5, currentPage:page, id: '1'}; let i = index">	  
-			<div class="span2">
-				<img src="{{pro.imageUrl}}" alt="">
-			</div>
-
-			<div class="span6">
-				<h5>{{pro.product_name}} </h5>
-				<p>{{pro.product_detail}} </p>
-			</div>
-
-			<div class="span4 alignR">
-				<form class="form-horizontal qtyFrm">
-				<h3> {{pro.price}}</h3>
-				<label class="checkbox">
-					<input type="checkbox">  Adds product to compair
-				</label><br>
-				<div class="btn-group">
-					<a href="product_details.html" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
-					<a href="product_details.html" class="shopBtn">VIEW</a>
+<div class="row">
+	<app-sidebar></app-sidebar>
+	<div class="span9">
+		<div class="well well-small">
+			<div class="row-fluid" *ngFor ="let pro of products | paginate: {itemsPerPage: 5, currentPage:page, id: '1'}; let i = index">	  
+				<div class="span2">
+					<img src="{{pro.imageUrl}}" alt="">
 				</div>
-				</form>
-			</div>
 
+				<div class="span6">
+					<h5>{{pro.product_name}} </h5>
+					<p>{{pro.product_detail}} </p>
+				</div>
+
+				<div class="span4 alignR">
+					<form class="form-horizontal qtyFrm">
+					<h3> {{pro.price}}</h3>
+					<label class="checkbox">
+						<input type="checkbox">  Adds product to compair
+					</label><br>
+					<div class="btn-group">
+						<a href="product_details.html" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
+						<a href="product_details.html" class="shopBtn">VIEW</a>
+					</div>
+					</form>
+				</div>
+
+			</div>
+			<hr class="soften">
 		</div>
-		<hr class="soften">
+		<pagination-controls (pageChange)="page = $event" id="1"
+			maxSize="5"
+			directionLinks="true"
+			autoHide="true">
+		</pagination-controls>
 	</div>
-	<pagination-controls (pageChange)="page = $event" id="1"
-		maxSize="5"
-		directionLinks="true"
-		autoHide="true">
-  	</pagination-controls>
 </div>
+
+
 

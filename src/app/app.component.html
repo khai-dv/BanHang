@@ -6,22 +6,9 @@
 	<app-header></app-header>
 
 	<!-- Body Section -->
-	<!--<app-body *ngIf="show"></app-body>
-	<app-about-us *ngIf="show"></app-about-us>-->
-
 	<div *ngIf="namepage == 'index'">
-	<app-body ></app-body>
+		<app-body ></app-body>
 	</div>
-
-	<div *ngIf="namepage == 'productlist'">
-	<app-product-list ></app-product-list>
-	</div>
-
-	<div *ngIf="namepage == 'register'">
-		<app-register ></app-register>
-	</div>
-	
-	<!-- <app-about-us></app-about-us> -->
 
 	<!-- Clients -->
 	<app-client></app-client>
