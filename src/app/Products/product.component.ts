@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { IProduct } from '../defines/product.interface';
+import { ProductDetailsComponent } from '../Product-details/product-details.component';
 
 @Component({
     selector: 'app-product',
@@ -8,5 +9,13 @@ import { IProduct } from '../defines/product.interface';
 
 export class ProductComponent {  
     @Input() product: IProduct;
+    
+    @ViewChild(ProductDetailsComponent)
+    private productDetails: ProductDetailsComponent;
+
+    ViewProduct(product_id:number){
+        this.productDetails.getProduct(product_id);
+        console.log(product_id);
+    }
 }
 

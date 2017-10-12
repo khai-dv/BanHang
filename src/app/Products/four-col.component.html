@@ -1,0 +1,22 @@
+<!-- 
+Products
+-->
+<div class="well well-small">
+  <h3>Four Column Product view </h3>
+  <div class="row-fluid" *ngFor="let pro of products; let i = index" >
+    <ul class="thumbnails" *ngIf="i % 4 === 0">
+        <li class="span3">
+            <app-product [product]="products[i]"></app-product>
+        </li>
+        <li class="span3" *ngIf="products[i + 1]">
+            <app-product [product]="products[i+1]"></app-product>
+        </li>
+        <li class="span3" *ngIf="products[i + 2]">
+            <app-product [product]="products[i+2]"></app-product>
+        </li>
+        <li class="span3" *ngIf="products[i + 3]">
+            <app-product [product]="products[i+3]"></app-product>
+        </li>
+    </ul>
+  </div>
+</div>
