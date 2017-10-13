@@ -1,34 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
-import { UserService } from '../services/user.service';
+import { ContactService } from '../services/contact.service';
 import { AlertService } from '../services/alert.service';
 
 @Component({
-    selector: 'app-register',
-    templateUrl: './register.component.html',
-    providers: [UserService, AlertService] 
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
 })
 
 
-export class RegisterComponent {  
-
+export class ContactComponent {  
     model: any = {};
     loading = false;
  
     constructor(
-        private router: Router,
-        private userService: UserService,
+        private contactService: ContactService,
         private alertService: AlertService) { }
  
     register() {
         this.loading = true;
-        this.userService.addItem(this.model)
+        this.contactService.addItem(this.model)
             .subscribe(
                 data => {
                     // set success message and pass true paramater to persist the message after redirecting to the login page
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['login']);
+                    this.alertService.success('Send comment successful', true);
                 },
                 error => {
                     this.alertService.error(error);

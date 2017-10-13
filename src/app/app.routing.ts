@@ -7,18 +7,20 @@ import { FourColComponent } from './Products/four-col.component';
 import { ProductDetailsComponent } from './Product-details/product-details.component';
 import { CartComponent } from './Cart/cart.component';
 import { RegisterComponent } from './register/index';
+import { ContactComponent } from './contact/index';
 import { AboutUsComponent } from './About_us/about_us';
 
  const appRoutes: Routes = [
+    { path: '', component: BodyComponent},
     { path: 'aboutUs',component: AboutUsComponent}, 
     { path: 'body', component: BodyComponent},
-    //{ path: '', component: RegisterComponent},
     { path: 'productlist',component: ProductListComponent,},  
     { path: 'three-col',component: ThreeColComponent,},  
     { path: 'four-col',component: FourColComponent,},  
     { path: 'products',component: ProductDetailsComponent,},  
     { path: 'cart',component: CartComponent,},  
     { path: 'register',component: RegisterComponent,},  
+    { path: 'contact',component: ContactComponent,},  
     { path: '**', redirectTo: '' }
 ];
 
