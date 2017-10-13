@@ -16,6 +16,7 @@ export class RegisterComponent {
 
     model: any = {};
     loading = false;
+    namepage = "register";
  
     constructor(
         private router: Router,
