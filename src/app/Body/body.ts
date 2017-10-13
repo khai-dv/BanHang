@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './body.html'
 })
 
-export class BodyComponent {}
+export class BodyComponent {
+  namepage ="index";
+}
