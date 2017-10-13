@@ -18,6 +18,7 @@ import { ProductDetailsComponent } from './Product-details/product-details.compo
 import { CartComponent } from './Cart/cart.component';
 import { ProductListComponent } from './product-list/index';
 import { RegisterComponent } from './register/index';
+import { ContactComponent } from './contact/index';
 import { BodyComponent } from './Body/body';
 import { SidebarComponent } from './Body/sidebar';
 import { AppGlobals } from './app.globals';
@@ -36,7 +37,9 @@ import { AppGlobals } from './app.globals';
     CartComponent,
     ProductListComponent,
     RegisterComponent,
-    BodyComponent, SidebarComponent 
+    ContactComponent,
+    BodyComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
