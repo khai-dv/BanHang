@@ -12,11 +12,11 @@ import { HeaderComponent } from './Header/header';
 import { UpperComponent } from './Header/upper.header';
 import { AboutUsComponent } from './About_us/about_us';
 import { ProductComponent } from './Products/product.component';
+import { ProductListComponent } from './product-list/index';
 import { ThreeColComponent } from './Products/three-col.component';
 import { FourColComponent } from './Products/four-col.component';
 import { ProductDetailsComponent } from './Product-details/product-details.component';
 import { CartComponent } from './Cart/cart.component';
-import { ProductListComponent } from './product-list/index';
 import { RegisterComponent } from './register/index';
 import { BodyComponent } from './Body/body';
 import { SidebarComponent } from './Body/sidebar';
@@ -27,16 +27,18 @@ import { AppGlobals } from './app.globals';
     AppComponent,
     FooterComponent,
     ClientsComponent,
-    HeaderComponent, UpperComponent,    
+    HeaderComponent, 
+    UpperComponent,    
     AboutUsComponent,
     ProductComponent, 
+    ProductListComponent,
     ThreeColComponent,
     FourColComponent,
     ProductDetailsComponent, 
     CartComponent,
-    ProductListComponent,
     RegisterComponent,
-    BodyComponent, SidebarComponent 
+    BodyComponent, 
+    SidebarComponent 
   ],
   imports: [
     BrowserModule,
