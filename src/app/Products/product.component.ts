@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { IProduct } from '../defines/product.interface';
-import { ProductDetailsComponent } from '../Product-details/product-details.component';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
 
 @Component({
     selector: 'app-product',
