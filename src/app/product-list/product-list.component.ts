@@ -15,8 +15,6 @@ import { AppGlobals } from '../app.globals';
 
 export class ProductListComponent implements OnInit {  
 
-    namepage = "productlist";
-
     _listFilter: string;
     filteredProducts: IProduct[];
     products: IProduct[] ;

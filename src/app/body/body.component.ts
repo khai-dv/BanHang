@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-body',
-  templateUrl: './body.html'
+  templateUrl: './body.component.html'
 })
 
 export class BodyComponent {
-  namepage ="index";
 }

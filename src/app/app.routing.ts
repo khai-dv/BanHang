@@ -1,17 +1,19 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { BodyComponent } from './Body/body';
+//import { AppComponent } from './app.component';
+import { HomeComponent } from './home/index';
+import { BodyComponent } from './body/index';
 import { ProductListComponent } from './product-list/index';
-import { ThreeColComponent } from './Products/three-col.component';
-import { FourColComponent } from './Products/four-col.component';
-import { ProductDetailsComponent } from './Product-details/product-details.component';
+import { ThreeColComponent, FourColComponent } from './products/index';
+import { ProductDetailsComponent } from './product-details/index';
 import { RegisterComponent } from './register/index';
 import { ContactComponent } from './contact/index';
-import { AboutUsComponent } from './About_us/about_us';
+import { AboutUsComponent } from './about-us/index';
 
 
  const appRoutes: Routes = [
-    { path: '', component: BodyComponent},
+    //{ path: '', component: BodyComponent},
+    { path: 'home',component: HomeComponent},
     { path: 'aboutUs',component: AboutUsComponent}, 
     { path: 'body', component: BodyComponent},
     { path: 'productlist',component: ProductListComponent,},  

@@ -25,29 +25,61 @@
     
     <div class="span4">
     <h4>Email Us</h4>
-    <form class="form-horizontal">
+    <form class="form-horizontal" name="form" (ngSubmit)="contactForm.form.valid && addContact()" #contactForm="ngForm" novalidate>
     <fieldset>
-      <div class="control-group">
+        <div class="control-group">
        
-          <input type="text" placeholder="your name" class="input-xlarge"/>
+            <input type="text" placeholder="user name" class="input-xlarge"
+            required
+            [(ngModel)]="model.username" name="username"
+            #username="ngModel"/>
+
+            <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                class="form-danger">
+                <div *ngIf="username.errors.required">
+                    Username is required.
+                </div>
+            </div>
+        </div>
+
+       <div class="control-group">
+       
+        <input type="text" placeholder="email" class="input-xlarge"
+          required
+          [(ngModel)]="model.email" name="email"
+          #email="ngModel"/>
+
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+              class="form-danger">
+            <div *ngIf="email.errors.required">
+                Email is required.
+            </div>
+        </div>
        
       </div>
        <div class="control-group">
        
-          <input type="text" placeholder="email" class="input-xlarge"/>
-       
-      </div>
-       <div class="control-group">
-       
-          <input type="text" placeholder="subject" class="input-xlarge"/>
+          <input type="text" placeholder="subject" class="input-xlarge"
+          required
+          [(ngModel)]="model.subject" name="subject"
+          #subject="ngModel"/>
+
+          <div *ngIf="subject.invalid && (subject.dirty || subject.touched)"
+              class="form-danger">
+            <div *ngIf="subject.errors.required">
+            Subject is required.
+            </div>
+          </div>
       
       </div>
       <div class="control-group">
-          <textarea rows="3" id="textarea" class="input-xlarge"></textarea>
-       
+        <textarea rows="3" id="textarea" class="input-xlarge"
+          [(ngModel)]="model.comment" name="comment"
+          #comment="ngModel">
+        </textarea>
       </div>
 
-        <button class="shopBtn" type="submit">Send email</button>
+        <input type="submit"  name="submitContact" value="Send email" class="exclusive shopBtn">
 
     </fieldset>
   </form>

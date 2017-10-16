@@ -4,9 +4,10 @@
 
     <div class="span9">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+            <li class="" routerLinkActive="active"><a routerLink="home"> Home</a> <span class="divider">/</span></li>
             <li class="active">Registration</li>
         </ul>
+
         <h3> Registration</h3>	
         <hr class="soft"/>
         <div class="well">
@@ -17,7 +18,7 @@
                         <input type="text" id="inputUname" placeholder="Your name" 
                             required
                             [(ngModel)]="model.username" name="username"
-                            #username="ngModel">
+                            #username="ngModel"/>
 
                         <div *ngIf="username.invalid && (username.dirty || username.touched)"
                             class="form-danger">
@@ -34,7 +35,7 @@
                         <input type="text" placeholder="Email" 
                             required
                             [(ngModel)]="model.email" name="email"
-                            #email="ngModel"> 
+                            #email="ngModel"/> 
         
                         <div *ngIf="email.invalid && (email.dirty || email.touched)"
                                 class="form-danger">
@@ -52,7 +53,7 @@
                             required
                             minlength="4"
                             [(ngModel)]="model.password" name="password"
-                            #password="ngModel">
+                            #password="ngModel"/>
 
                         <div *ngIf="password.invalid && (password.dirty || password.touched)"
                             class="form-danger">
@@ -78,5 +79,4 @@
         </div>
     </div>
 </div>
-
-
+<router-outlet></router-outlet>

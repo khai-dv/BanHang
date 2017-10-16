@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 
 import { UserService } from '../services/user.service';
 import { AlertService } from '../services/alert.service';
+import { AppGlobals } from '../app.globals';
 
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
     providers: [UserService, AlertService] 
 })
-
 
 export class RegisterComponent {  
 
@@ -19,7 +19,10 @@ export class RegisterComponent {
     constructor(
         private router: Router,
         private userService: UserService,
-        private alertService: AlertService) { }
+        private alertService: AlertService,
+        public mygb : AppGlobals) {
+            this.mygb.shareObj['namepage']='register';
+        }
  
     register() {
         this.loading = true;

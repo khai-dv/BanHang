@@ -3,7 +3,7 @@ import { AppGlobals } from '../app.globals';
 
 @Component({
   selector: 'app-about-us',
-  templateUrl: './about_us.html'
+  templateUrl: './about-us.component.html'
 })
 
 export class AboutUsComponent {
