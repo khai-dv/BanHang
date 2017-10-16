@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './upper.header.component.html'
 })
 
-export class UpperComponent {}
+export class UpperComponent {
+  totalCart: number=10;
+  totalCurrency: number=442.6667;
+}

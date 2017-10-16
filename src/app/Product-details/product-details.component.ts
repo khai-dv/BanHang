@@ -8,8 +8,8 @@
 // export class ProductDetailsComponent {
 //   @Input() product: IProduct;
 // }
-
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Subscription }       from 'rxjs/Subscription';
@@ -18,11 +18,13 @@ import { IProduct } from '../defines/product.interface';
 import { ProductService } from '../services/product.service';
 
 @Component({
+    selector: 'app-product-details',
     templateUrl: './product-details.component.html'
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
     pageTitle: string = 'Product Detail';
-    product: IProduct;
+    //product: IProduct;
+    @Input() product: IProduct;
     errorMessage: string;
     private sub: Subscription;
 

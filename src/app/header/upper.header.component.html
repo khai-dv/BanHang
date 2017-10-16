@@ -14,7 +14,7 @@
 				<a routerLink="register" routerLinkActive="active"><span class="icon-edit"></span> Free Register </a> 
 				<a routerLink="contact" routerLinkActive="active"><span class="icon-edit"></span> Contact us</a>
 				<a routerLink="aboutUs" routerLinkActive="active"><span class="icon-envelope"></span> About us</a>
-				<a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
+				<a routerLink="cart" routerLinkActive="active"><span class="icon-shopping-cart"></span> {{totalCart}} Item(s) - <span class="badge badge-warning"> ${{totalCurrency | number: '1.2-2'}}</span></a>
 				
 			</div>
 			<router-outlet></router-outlet>
