@@ -5,4 +5,5 @@ export interface IProduct{
 	imageUrl : string;
 	price : number;
 	product_detail : string;
+	product_type:number;
 }
