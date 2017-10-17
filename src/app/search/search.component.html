@@ -2,8 +2,21 @@
 	<app-sidebar></app-sidebar>
 	<div class="span9">
 		<div class="well well-small">
+			<div class="row-fluid" *ngIf="(products | productfilter:itemsearch)?.length  <= 0">
+				<p>Your search <b>"{{itemsearch}}"</b> did not match any products.</p>
+
+				<b>Try something like</b>
+				<p>&#8718;	Using more general terms <br>
+				&#8718;	Checking your spelling</p>
+			</div>
+			<div class="row-fluid" *ngIf="(products | productfilter:itemsearch)?.length  > 0">
+				<p>{{(products | productfilter:itemsearch)?.length }} results for <b>"{{itemsearch}}"</b></p>
+			</div> 
 			
-			<div class="row-fluid" *ngFor ="let pro of products | paginate: {itemsPerPage: 10, currentPage:page, id: '1'}; let i = index">	  
+			<hr class="soften"> 
+			
+			<div class="row-fluid" *ngFor ="let pro of products | productfilter: itemsearch | paginate: {itemsPerPage: 10, currentPage:page, id: '1'}; let i = index " >	  
+
 				<div class="span2">
 					<img src="{{pro.imageUrl}}" alt="">
 				</div>
@@ -25,9 +38,7 @@
 					</div>
 					</form>
 				</div>
-				<hr class="soften" >
 			</div>
-			<hr class="soften" >
 		</div>
 		<pagination-controls (pageChange)="page = $event" id="1"
 			maxSize="5"

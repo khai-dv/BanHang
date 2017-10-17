@@ -10,6 +10,7 @@ import { CartComponent } from './cart/index';
 import { RegisterComponent } from './register/index';
 import { ContactComponent } from './contact/index';
 import { AboutUsComponent } from './about-us/index';
+import { SearchComponent } from './search/index';
 
  const appRoutes: Routes = [
     //{ path: '', component: BodyComponent},
@@ -23,6 +24,7 @@ import { AboutUsComponent } from './about-us/index';
     { path: 'cart',component: CartComponent,},  
     { path: 'register',component: RegisterComponent,},  
     { path: 'contact',component: ContactComponent,},  
+    { path: 'search',component: SearchComponent,},  
     { path: '**', redirectTo: '' }
 ];
 

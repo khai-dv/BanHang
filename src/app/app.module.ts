@@ -17,7 +17,9 @@ import { ProductListComponent } from './product-list/index';
 import { RegisterComponent } from './register/index';
 import { ContactComponent } from './contact/index';
 import { BodyComponent, SidebarComponent } from './body/index';
+import { SearchComponent } from './search/index';
 import { AppGlobals } from './app.globals';
+import { ProductFilterPipe } from './search/index';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { AppGlobals } from './app.globals';
     ContactComponent,
     BodyComponent,
     SidebarComponent,
+    SearchComponent,
+    ProductFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +50,7 @@ import { AppGlobals } from './app.globals';
     HttpModule,
     Ng2PaginationModule
   ],
+  exports: [ProductFilterPipe],
   providers: [AppGlobals],
   bootstrap: [AppComponent]
 })

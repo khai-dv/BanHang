@@ -13,19 +13,9 @@ import { AppGlobals } from '../app.globals';
 })
 
 
-export class ProductListComponent implements OnInit {  
+export class ProductListComponent implements OnInit { 
 
-    _listFilter: string;
-    filteredProducts: IProduct[];
-    products: IProduct[] ;
-
-    get listFilter(): string {
-        return this._listFilter;
-    }
-    set listFilter(value: string) {
-        this._listFilter = value;
-        this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
-    }
+    public products: IProduct[] ;
 
     constructor(private router: Router,
                 private productService: ProductService,
@@ -33,26 +23,28 @@ export class ProductListComponent implements OnInit {
                 public mygb : AppGlobals) {
                     this.mygb.shareObj['namepage']='productlist';
                 }
-
-    performFilter(filterBy: string): IProduct[] {
-        filterBy = filterBy.toLocaleLowerCase();
-        return this.products.filter((product: IProduct) =>
-                product.product_name.toLocaleLowerCase().indexOf(filterBy) !== -1);
-    }
-    
     ngOnInit(): void {
         this.productService.getItems()
                 .subscribe(products => {
                     // set items to json response
                     this.products = products;
-                    this.filteredProducts = this.products;
                 },
                 error => {
                     this.alertService.error(error);
                 });
-    }
 
-    gotoProductList(): void {
-        this.router.navigate(['productlist']);
+        // this.productService.getItems().map(pros => {
+        //     return pros.filter(item => item.product_name == 'product_name 1' && item.product_code == "1508121509");
+        // }).subscribe(products => {
+        //             // set items to json response
+        //             this.products = products;
+        //             console.log(this.products.length);
+
+        //         },
+        //         error => {
+        //             this.alertService.error(error);
+        //         });
+
+        
     }
 }

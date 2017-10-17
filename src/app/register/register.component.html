@@ -19,7 +19,6 @@
                             required
                             [(ngModel)]="model.username" name="username"
                             #username="ngModel"/>
-
                         <div *ngIf="username.invalid && (username.dirty || username.touched)"
                             class="form-danger">
                             <div *ngIf="username.errors.required">
