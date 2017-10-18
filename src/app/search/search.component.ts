@@ -31,9 +31,7 @@ export class SearchComponent implements OnInit {
                     this.itemsearch = params["itemsearch"];
                     });
                 }
-    
 
-    
     ngOnInit(): void {
         console.log("ngOnInit");
         this.productService.getItems()

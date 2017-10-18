@@ -8,7 +8,9 @@ export class ProductFilterPipe implements PipeTransform{
       if (!value)
           return value;
       return value.filter( function(pro){
-        return pro.product_name.toLowerCase().includes(args.toLowerCase());
+        return pro.product_name.toLowerCase().includes(args.toLowerCase()) || 
+               pro.price.toString() == args  || 
+               pro.product_detail.toLowerCase().includes(args.toLowerCase());
       })
     }
 }
