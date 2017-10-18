@@ -21,6 +21,7 @@ import { SearchComponent } from './search/index';
 import { AppGlobals } from './app.globals';
 import { ProductFilterPipe } from './search/index';
 import { LoginComponent } from './login/index';
+
 @NgModule({
   declarations: [
     AppComponent,

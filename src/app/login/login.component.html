@@ -1,13 +1,13 @@
 <ul class="nav pull-right">
     <li class="dropdown">
-        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Login <b class="caret"></b></a>
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock" id="login"></span> Login <b class="caret"></b></a>
         <div class="dropdown-menu">
             <form class="form-horizontal loginFrm" #f="ngForm" (ngSubmit)="CheckLogin(f.value)">
                 <div class="control-group">
-                    <input type="text" class="span2" id="inputEmail" name="username" placeholder="Email" ngModel>
+                    <input type="text" class="span2" id="inputUsername" name="username"  placeholder="Username" [(ngModel)]="username">
                 </div>
                 <div class="control-group">
-                    <input type="password" class="span2" id="inputPassword" name="password" placeholder="Password" ngModel>
+                    <input type="password" class="span2" id="inputPassword" name="password" placeholder="Password" [(ngModel)]="password">
                 </div>
                 <div class="control-group">
                     <label class="checkbox">

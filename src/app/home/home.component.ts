@@ -9,6 +9,6 @@ import { AppGlobals } from '../app.globals';
 })
 export class HomeComponent {
   constructor (public mygb : AppGlobals){
-    this.mygb.shareObj['namepage']='index';
+    this.mygb.shareObj['namepage']='home';
   }
 }

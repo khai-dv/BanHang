@@ -11,11 +11,17 @@ import {Router} from '@angular/router';
     providers: [UserService, AlertService]
 })
 export class LoginComponent {
-    username: IUser[];
+    user: IUser[];
+    public username: string;
+    public password:string;
+    modal_idLogin;
+    modal_idUname;
+    modal_idPword;
+
     constructor(
         private router :Router,
         private alertService: AlertService,
-        private _userService: UserService,
+        private _userService: UserService
     ) { }
     CheckLogin(value: any) {
         console.log(value.username);
@@ -23,13 +29,33 @@ export class LoginComponent {
         this._userService.getItems().map(res => {
             return res.filter(item => item.username == value.username && item.username == value.password);
         }).subscribe(
-            usernames => {
-            this.username = usernames;
+            user => {
+            this.user = user;
                 console.log('Login!');
+                this.modal_idLogin.click();
                 this.router.navigate(['/home']);
             },
             error => { this.alertService.error(error); }
             );
     }
 
+    public AddDataForm(username: string, password:string, mode: boolean){
+
+    
+
+        console.log("AddDataForm");
+        if (mode==true){
+            console.log(username);
+            console.log(password);
+            this.modal_idUname.value = username 
+            this.modal_idPword.value = password
+            this.modal_idLogin.click();
+        }
+    }
+
+     ngOnInit(): void {
+        this.modal_idLogin = document.getElementById('login');
+        this.modal_idUname = document.getElementById('inputUsername');
+        this.modal_idPword = document.getElementById('inputPassword');
+    }
 }
