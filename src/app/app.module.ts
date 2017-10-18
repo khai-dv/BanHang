@@ -20,7 +20,7 @@ import { BodyComponent, SidebarComponent } from './body/index';
 import { SearchComponent } from './search/index';
 import { AppGlobals } from './app.globals';
 import { ProductFilterPipe } from './search/index';
-
+import { LoginComponent } from './login/index';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +42,7 @@ import { ProductFilterPipe } from './search/index';
     SidebarComponent,
     SearchComponent,
     ProductFilterPipe,
+	LoginComponent,
   ],
   imports: [
     BrowserModule,
