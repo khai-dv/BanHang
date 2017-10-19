@@ -13,6 +13,7 @@
     "target": "es5",
     "typeRoots": [
       "../node_modules/@types"
-    ]
+    ],
+    "angular2-social-login": "node_modules/angular2-social-login/dist/bundles/angular2-social-login.min.js"
   }
 }
