@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {Ng2PaginationModule} from 'ng2-pagination'; 
-import { routing } from './app.routing';
+import { Angular2SocialLoginModule } from "angular2-social-login";
 
+import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/index';
 import { FooterComponent, ClientsComponent  } from './footer/index';
@@ -21,6 +22,19 @@ import { SearchComponent } from './search/index';
 import { AppGlobals } from './app.globals';
 import { ProductFilterPipe } from './search/index';
 import { LoginComponent } from './login/index';
+
+let providers = {
+    "google": {
+      "clientId": "GOOGLE_CLIENT_ID"
+    },
+    "linkedin": {
+      "clientId": "LINKEDIN_CLIENT_ID"
+    },
+    "facebook": {
+      "clientId": "FACEBOOK_CLIENT_ID",
+      "apiVersion": "<version>" //like v2.4 
+    }
+  };
 
 @NgModule({
   declarations: [
@@ -57,3 +71,4 @@ import { LoginComponent } from './login/index';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+Angular2SocialLoginModule.loadProvidersScripts(providers);
