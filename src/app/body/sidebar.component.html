@@ -1,16 +1,16 @@
-<div id="sidebar" class="span3">
+<div id="sidebar" class="span3">	
 	<div class="well well-small">
-		<ul class="nav nav-list">
-			<li><a routerLink="typeProduct" routerLinkActive="active"><span class="icon-chevron-right"></span>Bộ sưu tập{{SetType(1)}}</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active"><span class="icon-chevron-right"></span>Trang sức cưới{{SetType(2)}}</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active"><span class="icon-chevron-right"></span>Trang sức vàng{{SetType(3)}}</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active"><span class="icon-chevron-right"></span>Trang sức bạc{{SetType(4)}}</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active"><span class="icon-chevron-right"></span>Kim cương{{SetType(5)}}</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active"><span class="icon-chevron-right"></span>Đá quý{{SetType(6)}}</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active"><span class="icon-chevron-right"></span>Ngọc trai{{SetType(7)}}</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active"><span class="icon-chevron-right"></span>Đồng hồ{{SetType(8)}}</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active"><span class="icon-chevron-right"></span>Quà tặng{{SetType(9)}}</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active"><span class="icon-chevron-right"></span>Sản phẩm nổi bật{{SetType(10)}}</a></li>
+		<ul class="nav nav-list">			
+			<li routerLinkActive="active"><a routerLink="typeProduct" (click)="SetType(1)"><span class="icon-chevron-right"></span>Bộ sưu tập</a></li>			
+			<li routerLinkActive="active"><a routerLink="typeProduct" (click)="SetType(2)"><span class="icon-chevron-right"></span>Trang sức cưới</a></li>			
+			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(3)"><span class="icon-chevron-right"></span>Trang sức vàng</a></li>
+			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(4)"><span class="icon-chevron-right"></span>Trang sức bạc</a></li>
+			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(5)"><span class="icon-chevron-right"></span>Kim cương</a></li>
+			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(6)"><span class="icon-chevron-right"></span>Đá quý</a></li>
+			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(7)"><span class="icon-chevron-right"></span>Ngọc trai</a></li>
+			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(8)"><span class="icon-chevron-right"></span>Đồng hồ</a></li>
+			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(9)"><span class="icon-chevron-right"></span>Quà tặng</a></li>
+			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(10)"><span class="icon-chevron-right"></span>Sản phẩm nổi bật</a></li>			
 			<li style="border:0"> &nbsp;</li>
 			<li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
 		</ul>
@@ -59,3 +59,4 @@
 	</ul>
 
 </div>
+<!--<router-outlet></router-outlet>-->

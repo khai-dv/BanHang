@@ -16,6 +16,7 @@ export class TypeProductComponent implements OnInit {
 
     _listFilter: string;
     filteredProducts: IProduct[];
+    datasource: IProduct[];
     products: IProduct[];
     product_type_value: number;    
 
@@ -40,15 +41,12 @@ export class TypeProductComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this._productService.getItems()
-            .subscribe(products => {
-                // set items to json response
-                // this.product_type_value=this.product_type.value_type;
-                // alert(this.product_type.value_type);
-                this.products = products;
-                this.filteredProducts = this.products;
+        this._productService.getItems()        
+            .subscribe(products => {                
+                this.products = products;                
+                this.filteredProducts = this.products.filter(data=>data.product_type===this.product_type_value);
             },
-            error => this.errorMessage = <any>error);
+            error => this.errorMessage = <any>error);        
     }
 
 }

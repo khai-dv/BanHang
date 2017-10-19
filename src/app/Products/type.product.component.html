@@ -1,26 +1,22 @@
-<!-- Products-->
-<h3>Our Products</h3>
-<div *ngFor="let pro of products; let i = index">
-  <div ngSwitch="{{pro.product_type}}">
-    <!--<div *ngSwitchCase="'1'" [ngClass]="'wedding'">     -->
-      <div *ngSwitchCase="product_type_value" [ngClass]="'wedding'">
-      <div *ngIf="i % 4 === 0">
-        <ul class="thumbnails" *ngIf="i % 4 === 0">
-            <li class="span3">
-              <app-product [product]="products[i]"></app-product>
-            </li>
-            <li class="span3">
-              <app-product [product]="products[i+1]"></app-product>
-            </li>
-            <li class="span3">
-              <app-product [product]="products[i+2]"></app-product>
-            </li>
-            <li class="span3">
-              <app-product [product]="products[i+3]"></app-product>
-            </li>
-        </ul>
-      </div>
+<div class="row">
+  <app-sidebar></app-sidebar>  
+  <h3 style="margin-left: 260px">Our Products</h3>
+  <div *ngFor="let pro of filteredProducts; let i = index">    
+    <div *ngIf="i % 4 === 0">
+      <ul class="thumbnails" *ngIf="i % 4 === 0">
+        <li class="span3">
+          <app-product [product]="filteredProducts[i]"></app-product>
+        </li>
+        <li class="span3" *ngIf="filteredProducts[i + 1]">
+          <app-product [product]="filteredProducts[i+1]"></app-product>
+        </li>
+        <li class="span3" *ngIf="filteredProducts[i + 2]">
+          <app-product [product]="filteredProducts[i+2]"></app-product>
+        </li>
+        <li class="span3" *ngIf="filteredProducts[i + 3]">
+          <app-product [product]="filteredProducts[i+3]"></app-product>
+        </li>
+      </ul>
     </div>
-    <!--<div *ngSwitchCase="'2'" [ngClass]="'two'">I am Odd.</div>-->
-  </div> 	
-</div> 
+  </div>
+</div>
