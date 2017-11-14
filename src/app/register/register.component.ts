@@ -24,7 +24,7 @@ export class RegisterComponent {
         private userService: UserService,
         private alertService: AlertService,
         public mygb : AppGlobals) {
-            this.mygb.shareObj['namepage']='register';
+            this.mygb.shareObj['namepage']='index';
         }
  
     register() {
@@ -39,7 +39,7 @@ export class RegisterComponent {
                     console.log(this.model.username);
                     console.log(this.model.password);
                     this.loginref.AddDataForm(this.model.username,this.model.password,true);
-                    this.router.navigate(['home']);
+                    this.router.navigate(['/home']);
                 },
                 error => {
                     this.alertService.error(error);

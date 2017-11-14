@@ -52,7 +52,7 @@ export class LoginComponent implements OnDestroy  {
         if (mode==true){
             this.modal_idUname.value = username 
             this.modal_idPword.value = password
-            this.modal_idLogin.click();
+            // this.modal_idLogin.click();
         }
     }
 

@@ -7,7 +7,7 @@ import { AlertService } from '../services/alert.service';
 import { AppGlobals } from '../app.globals';
 
 @Component({
-    selector: 'app-product-list',
+    selector: '',
     templateUrl: './product-list.component.html',
     providers: [ProductService, AlertService] 
 })
