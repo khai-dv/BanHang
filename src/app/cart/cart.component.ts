@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { IProduct } from '../defines/product.interface';
 import { ProductService } from '../services/product.service';
+import { AppGlobals } from '../app.globals';
 
 @Component({
     selector: 'app-cart',
@@ -25,8 +26,10 @@ export class CartComponent implements OnInit {
     this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
   }
 
-  constructor(private _productService: ProductService) {
+  constructor(private _productService: ProductService,
+              public mygb : AppGlobals) {
       
+    this.mygb.shareObj['namepage']='cart';
   }
 
   performFilter(filterBy: string): IProduct[] {
