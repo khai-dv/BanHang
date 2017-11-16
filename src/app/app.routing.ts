@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/index';
 import { BodyComponent } from './body/index';
 import { ProductListComponent } from './product-list/index';
-import { ThreeColComponent, FourColComponent, TypeProductComponent } from './products/index';
+import { ThreeColComponent, FourColComponent, TypeProductComponent, GeneralContentComponent } from './products/index';
 import { ProductDetailsComponent } from './product-details/index';
 import { CartComponent } from './cart/index';
 import { RegisterComponent } from './register/index';
@@ -28,6 +28,7 @@ import { LoginComponent } from './login/index';
     { path: 'contact',component: ContactComponent,},  
     { path: 'search',component: SearchComponent,}, 
     { path: 'login',component: LoginComponent}, 
+    { path: 'generalContent',component: GeneralContentComponent}
     // { path: '**', redirectTo: '' }
 ];
 
