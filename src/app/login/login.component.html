@@ -2,7 +2,7 @@
     <li class="dropdown">
         <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock" id="login"></span> Login <b class="caret"></b></a>
         <div class="dropdown-menu">
-            <form class="form-horizontal loginFrm" #f="ngForm" (ngSubmit)="CheckLogin(f.value)">
+            <form class="form-horizontal loginFrm" #f="ngForm" (ngSubmit)="CheckLogin(f.value) " id="formLogin">
                 <div class="control-group">
                     <input type="text" class="span2" id="inputUsername" name="username"  placeholder="Username" [(ngModel)]="username">
                 </div>
@@ -13,7 +13,7 @@
                     <label class="checkbox">
 				<input type="checkbox"> Remember me
 			</label>
-                    <p><button type="submit" class="shopBtn btn-block">Sign in</button></p>
+                    <p><button type="submit" class="shopBtn btn-block"><span id="model_loggin">Sign in</span></button></p>
                     <p><a  href="#" (click)="signIn('facebook')"><img src="./assets/img/facebook.png" style="height:35px;width:100%" ></a></p>
                     <p><a href="#" (click)="signIn('google')"><img src="./assets/img/google.jpg" style="height:35px;width:100%" ></a></p>
                 </div>

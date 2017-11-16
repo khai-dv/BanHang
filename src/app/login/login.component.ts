@@ -23,6 +23,8 @@ export class LoginComponent implements OnDestroy  {
     modal_idLogin;
     modal_idUname;
     modal_idPword;
+    public users :any[];
+    public usertrue :boolean;
 
     constructor(
         private router :Router,
@@ -31,20 +33,35 @@ export class LoginComponent implements OnDestroy  {
         public _auth: AuthService
     ) { }
 
-    CheckLogin(value: any) {
-        console.log(value.username);
-        console.log(value.password);
-        this._userService.getItems().map(res => {
-            return res.filter(item => item.username == value.username && item.username == value.password);
-        }).subscribe(
-            user => {
-            this.user = user;
-                console.log('Login!');
-                this.modal_idLogin.click();
-                this.router.navigate(['/home']);
-            },
-            error => { this.alertService.error(error); }
-            );
+     CheckLogin(value: any) {
+       if(document.getElementById('model_loggin').innerHTML=="Sign in") {
+            this.usertrue=false;
+                for (let us of this.users){
+                    if (value.username==us.username&&value.password==us.password){
+                        this.usertrue=true;
+                        this.username=us.username;
+                    }
+                }
+                if(this.usertrue){
+                    this.router.navigate(['/home']); 
+                    document.getElementById('model_account').innerHTML=" " + this.username;
+                    document.getElementById('model_loggin').innerHTML="Sign out";
+                    alert("Sign in successful");
+                }
+                else{
+                    document.getElementById('model_account').innerHTML=" My Account";
+                    document.getElementById('model_loggin').innerHTML="Sign in";
+                    alert("Sign in Error!");
+                }
+        }
+        else{
+            this.username=""
+            this.password="";
+            document.getElementById('model_account').innerHTML=" My Account";
+            document.getElementById('model_loggin').innerHTML="Sign in";
+            alert("Sign out successful");
+        }
+        this.modal_idLogin.click();
     }
 
     public AddDataForm(username: string, password:string, mode: boolean){
@@ -67,6 +84,10 @@ export class LoginComponent implements OnDestroy  {
     }
 
     ngOnInit(): void {
+
+         this._userService.getItems().subscribe((res:any)=>{
+            this.users=res;
+        },error => { this.alertService.error(error); });
 
         this.modal_idLogin = document.getElementById('login');
         this.modal_idUname = document.getElementById('inputUsername');
