@@ -11,7 +11,7 @@ import { HomeComponent } from './home/index';
 import { FooterComponent, ClientsComponent  } from './footer/index';
 import { HeaderComponent, UpperComponent } from './header/index';
 import { AboutUsComponent } from './about-us/index';
-import { ProductComponent, ThreeColComponent, FourColComponent, TypeProductComponent , GeneralContentComponent } from './products/index';
+import { ProductComponent, FourColComponent, TypeProductComponent , GeneralContentComponent } from './products/index';
 import { ProductDetailsComponent } from './product-details/index';
 import { CartComponent } from './cart/index';
 import { ProductListComponent } from './product-list/index';
@@ -47,7 +47,6 @@ let providers = {
     AboutUsComponent,
     ProductComponent, 
     ProductListComponent,
-    ThreeColComponent,
     FourColComponent,
     ProductDetailsComponent,
     TypeProductComponent,

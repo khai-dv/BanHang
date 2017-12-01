@@ -1,16 +1,10 @@
 <!-- Registration -->
 <div class="row">
     <app-sidebar></app-sidebar>
-
     <div class="span9">
-        <ul class="breadcrumb">
-            <li class="" routerLinkActive="active"><a routerLink="home"> Home</a> <span class="divider">/</span></li>
-            <li class="active">Registration</li>
-        </ul>
-
-        <h3> Registration</h3>	
-        <hr class="soft"/>
         <div class="well">
+            <h3> Registration</h3>	
+            <hr class="soft"/>
             <form class="form-horizontal" name="form" (ngSubmit)="userForm.form.valid && register()" #userForm="ngForm" novalidate >
                 <div class="control-group">
                     <label class="control-label" for="inputFname">Your name <sup>*</sup></label>
