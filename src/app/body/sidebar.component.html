@@ -1,18 +1,28 @@
 <div id="sidebar" class="span3">	
 	<div class="well well-small">
-		<ul class="nav nav-list">			
-			<li routerLinkActive="active"><a routerLink="typeProduct" (click)="SetType(1)"><span class="icon-chevron-right"></span>Bộ sưu tập</a></li>			
-			<li routerLinkActive="active"><a routerLink="typeProduct" (click)="SetType(2)"><span class="icon-chevron-right"></span>Trang sức cưới</a></li>			
-			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(3)"><span class="icon-chevron-right"></span>Trang sức vàng</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(4)"><span class="icon-chevron-right"></span>Trang sức bạc</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(5)"><span class="icon-chevron-right"></span>Kim cương</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(6)"><span class="icon-chevron-right"></span>Đá quý</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(7)"><span class="icon-chevron-right"></span>Ngọc trai</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(8)"><span class="icon-chevron-right"></span>Đồng hồ</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(9)"><span class="icon-chevron-right"></span>Quà tặng</a></li>
-			<li><a routerLink="typeProduct" routerLinkActive="active" (click)="SetType(10)"><span class="icon-chevron-right"></span>Sản phẩm nổi bật</a></li>			
+		<ul class="nav nav-list">
+			<li routerLinkActive="active"><a (click)="SetType(1)" routerLink="typeProduct"><span class="icon-chevron-right"></span>Bộ sưu tập</a></li>
+			<li routerLinkActive="active"><a (click)="SetType(2)" routerLink="typeProduct"><span class="icon-chevron-right"></span>Trang sức cưới</a></li>
+			<li routerLinkActive="active"><a (click)="SetType(3)" routerLink="typeProduct"><span class="icon-chevron-right"></span>Trang sức vàng</a></li>
+			<li routerLinkActive="active"><a (click)="SetType(4)" routerLink="typeProduct"><span class="icon-chevron-right"></span>Trang sức bạc</a></li>
+			<li routerLinkActive="active"><a (click)="SetType(5)" routerLink="typeProduct"><span class="icon-chevron-right"></span>Kim cương</a></li>
+			<li routerLinkActive="active"><a (click)="SetType(6)" routerLink="typeProduct"><span class="icon-chevron-right"></span>Đá quý</a></li>
+			<li routerLinkActive="active"><a (click)="SetType(7)" routerLink="typeProduct"><span class="icon-chevron-right"></span>Ngọc trai</a></li>
+      <li class="dropdown">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-chevron-right"></span>Đồng hồ</a>
+        <div class="dropdown-menu">
+          <form class="form-horizontal loginFrm">
+            <div class="control-group">
+              <li routerLinkActive="active"><a (click)="SetType(8)" routerLink="typeProduct"><span class="icon-chevron-right"></span>Đồng hồ nam </a></li>
+            </div>
+            <div class="control-group">
+              <li routerLinkActive="active"><a (click)="SetType(9)" routerLink="typeProduct"><span class="icon-chevron-right"></span>Đồng hồ nữ </a></li>
+            </div>
+          </form>
+        </div>
+      </li>      
 			<li style="border:0"> &nbsp;</li>
-			<li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+			<li> <a class="totalInCart" routerLink="cart"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
 		</ul>
 	</div>
 
@@ -27,16 +37,6 @@
 	<br>
 	<br>
 	<ul class="nav nav-list promowrapper">
-		<li>
-			<div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
-				<div class="caption">
-					<h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			</div>
-		</li>
-		<li style="border:0"> &nbsp;</li>
 		<li>
 			<div class="thumbnail">
 				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>

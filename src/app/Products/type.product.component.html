@@ -1,22 +1,21 @@
 <div class="row">
   <app-sidebar></app-sidebar>  
-  <h3 style="margin-left: 260px">Our Products</h3>
-  <div *ngFor="let pro of filteredProducts; let i = index">    
-    <div *ngIf="i % 4 === 0">
-      <ul class="thumbnails" *ngIf="i % 4 === 0">
-        <li class="span3">
-          <app-product [product]="filteredProducts[i]"></app-product>
-        </li>
-        <li class="span3" *ngIf="filteredProducts[i + 1]">
-          <app-product [product]="filteredProducts[i+1]"></app-product>
-        </li>
-        <li class="span3" *ngIf="filteredProducts[i + 2]">
-          <app-product [product]="filteredProducts[i+2]"></app-product>
-        </li>
-        <li class="span3" *ngIf="filteredProducts[i + 3]">
-          <app-product [product]="filteredProducts[i+3]"></app-product>
-        </li>
-      </ul>
+  <div class="span9">
+    <h3>Our Products</h3>
+    <div *ngFor="let pro of filteredProducts; let i = index">    
+      <div *ngIf="i % 3 === 0">
+        <ul class="thumbnails" *ngIf="i % 3 === 0">
+          <li class="span3">
+            <app-product [product]="filteredProducts[i]"></app-product>
+          </li>
+          <li class="span3" *ngIf="filteredProducts[i + 1]">
+            <app-product [product]="filteredProducts[i+1]"></app-product>
+          </li>
+          <li class="span3" *ngIf="filteredProducts[i + 2]">
+            <app-product [product]="filteredProducts[i+2]"></app-product>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
