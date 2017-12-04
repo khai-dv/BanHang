@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="span12">
+    <div class="well well-small">
+      <h1>Check Out <small class="pull-right"> {{TotalItem}} Items are in the cart </small></h1>
+      <hr class="soften"/>	
+      <table class="table table-bordered table-condensed">
+        <thead>
+        <tr>
+          <th>Product</th>
+          <th>Description</th>
+          <th>Unit price</th>
+          <th>Qty </th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let pro of products; let i = index" >
+          <td><img width="100" src="{{pro.imageUrl}}" alt=""></td>
+          <td>{{pro.product_name}}</td>
+          <td>${{pro.price | number: '1.2-2'}}</td>
+          <td>1</td>
+          <td>${{pro.price | number: '1.2-2'}}</td>
+          <td><button class="btn btn-mini btn-danger" type="button"><span class="icon-remove"></span></button></td>
+        </tr>
+    
+          <tr>
+          <td colspan="6" class="alignR">Total products:	</td>
+          <td class="label label-primary"> $448.42</td>
+        </tr>
+        </tbody>
+      </table><br/>
+    </div>
+  </div>
+</div>

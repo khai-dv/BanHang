@@ -84,4 +84,8 @@ export class ProductService {
 								.catch(this.handleError);
 	}
 
+	Search(key:string):Observable<any[]>{
+		return this._httpService.get(this.apiUrl + "?search" + key)
+								.map((res:Response)=>res.json())
+	}
 }

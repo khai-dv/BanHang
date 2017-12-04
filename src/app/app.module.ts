@@ -22,6 +22,7 @@ import { SearchComponent } from './search/index';
 import { AppGlobals } from './app.globals';
 import { ProductFilterPipe } from './search/index';
 import { LoginComponent } from './login/index';
+import { CartshopComponent } from './cartshop/index';
 
 let providers = {
     "google": {
@@ -58,7 +59,8 @@ let providers = {
     SearchComponent,
     ProductFilterPipe,
 	  LoginComponent,
-    GeneralContentComponent
+    GeneralContentComponent,
+    CartshopComponent
   ],
   imports: [
     BrowserModule,

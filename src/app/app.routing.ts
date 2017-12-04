@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/index';
 import { AboutUsComponent } from './about-us/index';
 import { SearchComponent } from './search/index';
 import { LoginComponent } from './login/index';
+import { CartshopComponent } from './cartshop/index';
 
  const appRoutes: Routes = [
     // { path: '', component: HomeComponent},
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/index';
     { path: 'four-col',component: FourColComponent,},  
     { path: 'products',component: ProductDetailsComponent,}, 
     { path: 'typeProduct',component: TypeProductComponent,},          
-    { path: 'cart',component: CartComponent,},  
+    { path: 'cart',component: CartshopComponent,},  
+    { path: 'cartshop',component: CartshopComponent,},  
     { path: 'register',component: RegisterComponent,},  
     { path: 'contact',component: ContactComponent,},  
     { path: 'search',component: SearchComponent,}, 
