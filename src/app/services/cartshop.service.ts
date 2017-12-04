@@ -17,4 +17,10 @@ export class CartshopService {
 		return this._httpService.get(this.apiUrl + "?search=" + key)
 								.map((res:Response) => res.json())
 	}
+
+	Delete(id:number):Observable<any[]>{
+		return this._httpService.delete(this.apiUrl + "/" + id)
+								.map((res:Response) => res.json())
+	}
+
 }

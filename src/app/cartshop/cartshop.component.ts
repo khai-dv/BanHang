@@ -20,6 +20,19 @@ export class CartshopComponent implements OnInit {
   constructor(private _cartshopService: CartshopService) {}
 
   ngOnInit(): void {
+    this.LoadData();
+  }
+
+  Delete(id:number){
+    this._cartshopService.Delete(id)
+        .subscribe(res =>{
+            if(res){
+                this.LoadData();
+            }
+        })
+  }
+
+  LoadData(){
     this.keysearch=document.getElementById('model_account').innerHTML;
     this._cartshopService.Search(this.keysearch.trim())
         .subscribe((res:any) =>{
