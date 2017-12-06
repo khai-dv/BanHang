@@ -1,8 +1,15 @@
 <div class="row">
   <app-sidebar></app-sidebar>  
+
   <div class="span9">
+
+      <!-- <div  *ngIf="(filteredProducts)?.length  <= 0">
+          <p>Your search <b>"{{product_type_value}}"</b> did not match any products.</p>
+        </div> -->
+
     <h3>Our Products</h3>
-    <div *ngFor="let pro of filteredProducts; let i = index">    
+
+    <div *ngFor="let pro of filteredProducts ; let i = index">    
       <div *ngIf="i % 3 === 0">
         <ul class="thumbnails" *ngIf="i % 3 === 0">
           <li class="span3">
@@ -19,3 +26,4 @@
     </div>
   </div>
 </div>
+

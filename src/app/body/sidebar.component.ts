@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import * as glo from '../app.globals';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,9 +8,16 @@ import * as glo from '../app.globals';
 
 export class SidebarComponent {  
   
-  SetType(value:number)
+  constructor(private router: Router) {}
+
+  public gotoSearch_SP(value:number)
   {  
-    glo.setValue(value);   
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "itemsearch": value,
+      }
+    };
+    this.router.navigate(["typeProduct"], navigationExtras); 
   }
 
 }

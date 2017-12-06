@@ -23,6 +23,7 @@ import { AppGlobals } from './app.globals';
 import { ProductFilterPipe } from './search/index';
 import { LoginComponent } from './login/index';
 import { CartshopComponent } from './cartshop/index';
+import { TypeProductFilterPipe } from './products/index';
 
 let providers = {
     "google": {
@@ -51,6 +52,7 @@ let providers = {
     FourColComponent,
     ProductDetailsComponent,
     TypeProductComponent,
+    TypeProductFilterPipe,
     CartComponent,
     RegisterComponent,
     ContactComponent,
