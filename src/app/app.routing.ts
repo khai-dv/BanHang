@@ -13,6 +13,7 @@ import { AboutUsComponent } from './about-us/index';
 import { SearchComponent } from './search/index';
 import { LoginComponent } from './login/index';
 import { CartshopComponent } from './cartshop/index';
+import { AdminComponent } from './admin/index';
 
  const appRoutes: Routes = [
     // { path: '', component: HomeComponent},
@@ -29,7 +30,8 @@ import { CartshopComponent } from './cartshop/index';
     { path: 'contact',component: ContactComponent,},  
     { path: 'search',component: SearchComponent,}, 
     { path: 'login',component: LoginComponent}, 
-    { path: 'generalContent',component: GeneralContentComponent}
+    { path: 'generalContent',component: GeneralContentComponent},
+    { path: 'admin',component: AdminComponent}
     // { path: '**', redirectTo: '' }
 ];
 
