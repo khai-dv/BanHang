@@ -15,7 +15,6 @@ export class ProductComponent {
 
     ViewProduct(product_id:number){
         this.productDetails.getProduct(product_id);
-        console.log(product_id);
     }
 }
 

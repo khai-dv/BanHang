@@ -10,6 +10,7 @@
 				<div class="span6">
 					<h5>{{pro.product_name}} </h5>
 					<p>{{pro.product_detail}} </p>
+					<p>{{pro.product_id}} </p>
 				</div>
 
 				<div class="span4 alignR">
@@ -19,8 +20,10 @@
 						<input type="checkbox">  Adds product to compair
 					</label><br>
 					<div class="btn-group">
-						<a href="product_details.html" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
-						<a href="product_details.html" class="shopBtn">VIEW</a>
+						<!-- <a (click)="viewDetails(pro.product_id)" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
+						<a (click)="viewDetails(pro.product_id)" class="shopBtn">VIEW</a> -->
+						<a routerLink ="/products/{{pro.product_id}}" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
+						<a routerLink ="/products/{{pro.product_id}}" class="shopBtn">VIEW</a>
 					</div>
 					</form>
 				</div>

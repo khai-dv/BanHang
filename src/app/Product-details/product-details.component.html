@@ -1,70 +1,93 @@
-<div class="span9">
-    <ul class="breadcrumb">
-    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-	<!--<li><a [routerLink]="['/products']">Home</a> <span class="divider">/</span></li>-->
-    <li><a href="./product/products.component.html">Items</a> <span class="divider">/</span></li>
-    <li class="active">Preview</li>
-    </ul>	
-	<div class="well well-small">
-	<div class="row-fluid">
-		<div class="span5">
-			<div id="myCarousel" class="carousel slide cntr">
-                <div class="carousel-inner">
-                  <div class="item active">
-                   <a href="#"> <img src="{{product.imageUrl}}" alt="" style="width:100%"></a>
-                  </div>
-                  <div class="item">
-                     <a href="#"> <img src="assets/img/b.jpg" alt="" style="width:100%"></a>
-                  </div>
-                  <div class="item">
-                    <a href="#"> <img src="assets/img/e.jpg" alt="" style="width:100%"></a>
-                  </div>
-                </div>
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-            </div>
-		</div>
-		<div class="span7">
-			<h3>{{product.product_name}} [${{product.price | number: '1.2-2'}}]</h3>
-			<hr class="soft"/>
-			
-			<form class="form-horizontal qtyFrm">
-				<div class="control-group">
-				<label class="control-label"><span>${{product.price | number: '1.2-2'}}</span></label>
-				<div class="controls">
-				<input type="number" class="span6" placeholder="Qty.">
+<div class="row">
+	<app-sidebar></app-sidebar>
+	<div class="span9">
+		<ul class="breadcrumb">
+			<li>
+				<a href="index.html">Home</a>
+				<span class="divider">/</span>
+			</li>
+			<!--<li><a [routerLink]="['/products']">Home</a> <span class="divider">/</span></li>-->
+			<li>
+				<a href="./product/products.component.html">Items</a>
+				<span class="divider">/</span>
+			</li>
+			<li class="active">Preview</li>
+		</ul>
+		<div class="well well-small">
+			<div class="row-fluid">
+				<div class="span5">
+					<div id="myCarousel" class="carousel slide cntr">
+						<div class="carousel-inner">
+							<div class="item active">
+								<a href="#">
+									<img src="{{product.imageUrl}}" alt="" style="width:100%">
+									<!-- <img [(ngModel)]="product.imageUrl" name="imageUrl" src="ngModel" alt="" style="width:100%"> -->
+								</a>
+							</div>
+							<div class="item">
+								<a href="#">
+									<img src="assets/img/b.jpg" alt="" style="width:100%">
+								</a>
+							</div>
+							<div class="item">
+								<a href="#">
+									<img src="assets/img/e.jpg" alt="" style="width:100%">
+								</a>
+							</div>
+						</div>
+						<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+						<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+					</div>
 				</div>
+				<div class="span7">
+					<h3>{{product.product_name}} [${{product.price | number: '1.2-2'}}]</h3>
+					<hr class="soft" />
+
+					<form class="form-horizontal qtyFrm">
+						<div class="control-group">
+							<label class="control-label">
+								<span>${{product.price | number: '1.2-2'}}</span>
+							</label>
+							<div class="controls">
+								<input type="number" class="span6" placeholder="Qty.">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">
+								<span>Color</span>
+							</label>
+							<div class="controls">
+								<select class="span11">
+									<option>Red</option>
+									<option>Purple</option>
+									<option>Pink</option>
+									<option>Red</option>
+								</select>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">
+								<span>Materials</span>
+							</label>
+							<div class="controls">
+								<select class="span11">
+									<option>Material 1</option>
+									<option>Material 2</option>
+									<option>Material 3</option>
+									<option>Material 4</option>
+								</select>
+							</div>
+						</div>
+						<h4>Product Information</h4>
+						<p>{{product.product_detail}}
+							<p>
+								<button type="submit" class="shopBtn">
+									<span class=" icon-shopping-cart"></span> Add to cart</button>
+					</form>
 				</div>
-				<div class="control-group">
-				<label class="control-label"><span>Color</span></label>
-				<div class="controls">
-					<select class="span11">
-						<option>Red</option>
-						<option>Purple</option>
-						<option>Pink</option>
-						<option>Red</option>
-					</select>
-				</div>
-				</div>
-				<div class="control-group">
-				<label class="control-label"><span>Materials</span></label>
-				<div class="controls">
-					<select class="span11">
-						<option>Material 1</option>
-						<option>Material 2</option>
-						<option>Material 3</option>
-						<option>Material 4</option>
-					</select>
-				</div>
-				</div>
-				<h4>Product Information</h4>
-				<p>{{product.product_detail}}
-				<p>
-				<button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>
-			</form>
+			</div>
+			<hr class="softn clr" />
 		</div>
 	</div>
-	<hr class="softn clr"/>
+	<!-- <router-outlet></router-outlet> -->
 </div>
-</div>
-<router-outlet></router-outlet>

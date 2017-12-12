@@ -12,42 +12,53 @@ import { DecimalPipe } from '@angular/common';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Subscription }       from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
 import { IProduct } from '../defines/product.interface';
 import { ProductService } from '../services/product.service';
+import { AppGlobals } from '../app.globals';
 
 @Component({
     selector: 'app-product-details',
-    templateUrl: './product-details.component.html'
+    templateUrl: './product-details.component.html',
+    providers: [ProductService]
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
     pageTitle: string = 'Product Detail';
-    //product: IProduct;
-    @Input() product: IProduct;
+    product: IProduct;
+    productID: any;
+    // product: any = {};
+    imageUrl: string;
     errorMessage: string;
     private sub: Subscription;
 
     constructor(private route: ActivatedRoute,
-                private router: Router,
-                private productService: ProductService) {
+        private router: Router,
+        private ac_route: ActivatedRoute,
+        private productService: ProductService,
+        public mygb: AppGlobals) {
+
+        this.mygb.shareObj['namepage'] = 'productlist';
+        this.ac_route.queryParams.subscribe(params => {
+            this.productID = params["product_id"];
+        });
     }
 
     ngOnInit(): void {
-        this.sub = this.route.params.subscribe(
-            params => {
-                let id = +params['id'];
-                this.getProduct(id);
-        });
+        this.getProduct(this.productID);
+        console.log("onInit" + this.product);
     }
 
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
 
-    getProduct(id: number) {
+    getProduct(id: any) {
         this.productService.getItem(id).subscribe(
-            product => this.product = product,
+            product => {
+                console.log(product);
+                this.product = product
+            },
             error => this.errorMessage = <any>error);
     }
 
@@ -55,7 +66,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         this.router.navigate(['/products']);
     }
 
-    onRatingClicked(message: string): void {
-        this.pageTitle = 'Product Detail: ' + message;
-    }
+    // onRatingClicked(message: string): void {
+    //     this.pageTitle = 'Product Detail: ' + message;
+    // }
 }

@@ -15,23 +15,23 @@ import { LoginComponent } from './login/index';
 import { CartshopComponent } from './cartshop/index';
 import { AdminComponent } from './admin/index';
 
- const appRoutes: Routes = [
+const appRoutes: Routes = [
     // { path: '', component: HomeComponent},
-    { path: 'home',component: HomeComponent},
-    { path: 'aboutUs',component: AboutUsComponent}, 
-    { path: 'body', component: BodyComponent},
-    { path: 'productlist',component: ProductListComponent,},   
-    { path: 'four-col',component: FourColComponent,},  
-    { path: 'products',component: ProductDetailsComponent,}, 
-    { path: 'typeProduct',component: TypeProductComponent,},          
-    { path: 'cart',component: CartshopComponent,},  
-    { path: 'cartshop',component: CartshopComponent,},  
-    { path: 'register',component: RegisterComponent,},  
-    { path: 'contact',component: ContactComponent,},  
-    { path: 'search',component: SearchComponent,}, 
-    { path: 'login',component: LoginComponent}, 
-    { path: 'generalContent',component: GeneralContentComponent},
-    { path: 'admin',component: AdminComponent}
+    { path: 'home', component: HomeComponent },
+    { path: 'aboutUs', component: AboutUsComponent },
+    { path: 'body', component: BodyComponent },
+    { path: 'productlist', component: ProductListComponent, },
+    { path: 'four-col', component: FourColComponent, },
+    { path: 'products/:id',component: ProductDetailsComponent,},
+    { path: 'typeProduct', component: TypeProductComponent, },
+    { path: 'cart', component: CartshopComponent, },
+    { path: 'cartshop', component: CartshopComponent, },
+    { path: 'register', component: RegisterComponent, },
+    { path: 'contact', component: ContactComponent, },
+    { path: 'search', component: SearchComponent, },
+    { path: 'login', component: LoginComponent },
+    { path: 'generalContent', component: GeneralContentComponent },
+    { path: 'admin', component: AdminComponent }
     // { path: '**', redirectTo: '' }
 ];
 
