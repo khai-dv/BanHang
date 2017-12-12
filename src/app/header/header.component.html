@@ -3,12 +3,10 @@
 <header id="header">
 	<div class="row">
 		<div class="span4">
-			<h1>
-				<a class="logo" href="index.html">
-					<span>Twitter Bootstrap ecommerce template</span>
-					<img src="assets/img/lotus.png" alt="bootstrap sexy shop">
-				</a>
-			</h1>
+			<a class="logo" routerLink="home">
+				<span>Twitter Bootstrap ecommerce template</span>
+				<img src="assets/img/lotus.png" alt="bootstrap sexy shop">
+			</a>
 		</div>
 		<div class="span4">
 			<div class="offerNoteWrapper">
@@ -61,7 +59,6 @@
 				<form action="#" class="navbar-search pull-left">
 					<input type="text" placeholder="Search" class="search-query span3" [(ngModel)]="itemsearch" name="itemsearch" (keyup.enter)="gotoSearch()">
 				</form>
-				<app-login></app-login>
 			</div>
 		</div>
 	</div>

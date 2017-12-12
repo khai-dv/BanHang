@@ -1,9 +1,11 @@
 <ul class="nav pull-right">
-	<li class="">
+	<li *ngIf="!usertrue" class="">
 		<a routerLink="register" routerLinkActive="active">
-			<span class="icon-edit"></span> Free Register </a>
+		<span class="icon-edit"></span> Free Register </a>
 	</li>
-	<li class="dropdown">
+
+	<!--Sign In-->
+	<li *ngIf="!usertrue" class="dropdown">
 		<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 			<span class="icon-lock" id="login"></span> Login
 			<b class="caret"></b>
@@ -28,5 +30,23 @@
 				</div>
 			</form>
 		</div>
+	</li>
+	
+	<!--Sign Out-->
+	<li *ngIf="usertrue" class="dropdown">
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+			<span class="icon-lock" id="login"></span> {{username}}
+			<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li style="text-align: left;"><a>Signed in as <strong> <i>{{username}}</i></strong></a></li>
+			<li class="divider"></li>
+			<li style="text-align: left;"><a>Your profile</a></li>
+			<li style="text-align: left;"><a routerLink="cartshop">Your cart</a></li>
+			<li class="divider"></li>
+			<li style="text-align: left;"><a >Help</a></li>
+			<li style="text-align: left;"><a >Settings</a></li>
+			<li style="text-align: left;"><a href="#">Sign out</a></li>
+		</ul>
 	</li>
 </ul>

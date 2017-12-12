@@ -7,7 +7,6 @@ import {Router} from '@angular/router';
 //import { AuthService, AppGlobals } from 'angular2-google-login';
 import { AuthService } from "angular2-social-login";
 
-
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -72,8 +71,6 @@ export class LoginComponent implements OnDestroy  {
             // this.modal_idLogin.click();
         }
     }
-
-
     onSignIn(googleUser) {
         
         var profile = googleUser.getBasicProfile();
