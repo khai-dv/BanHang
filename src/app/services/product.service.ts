@@ -21,11 +21,15 @@ export class ProductService {
 
 	private apiUrl = "http://59df404db11b290012f17b88.mockapi.io/products" 
 
+	headers: Headers;
+    options: RequestOptions;
+
 	private data:IProduct[];
-	constructor(
-		private _httpService : Http
-		
-	) {}
+	constructor(private _httpService : Http) {
+		this.headers = new Headers({ 'Content-Type': 'application/json', 
+		'Accept': 'q=0.8;application/json;q=0.9' });
+		this.options = new RequestOptions({ headers: this.headers });
+	}
 
 	private extractData(res : Response){
 		return res.json() || {}
@@ -51,29 +55,38 @@ export class ProductService {
 	}
 
 	getItem(id : number) : Observable<IProduct>{
-		return this._httpService.get(this.apiUrl + id)
+		return this._httpService.get(this.apiUrl  +"/" + id)
 								.map(this.extractData)
 								.catch(this.handleError);
 	}
 
 	addItem(product : IProduct){
 		let headers = new Headers({ 'Content-Type': 'application/json' });
-    	let options = new RequestOptions({ headers: headers });
+		let options = new RequestOptions({ headers: headers });
 		return this._httpService.post(this.apiUrl,product,options)
 								.map(this.extractData)								
 								.catch(this.handleError);							
 	}
 
+	// addItem(product : IProduct): Observable<IProduct>{
+	// 	let headers = new Headers({ 'Content-Type': 'application/json' });
+    // 	let options = new RequestOptions({ headers: headers });
+	// 	return this._httpService.post(this.apiUrl,product,options)
+	// 							.map(this.extractData)								
+	// 							.catch(this.handleError);							
+	// }
+
 	editItem(id : number, product : IProduct){
 		let headers = new Headers({ 'Content-Type': 'application/json' });
     	let options = new RequestOptions({ headers: headers });
-		return this._httpService.put(this.apiUrl + id,product,options)
+		return this._httpService.put(this.apiUrl +"/" + id,product,options)
 								.map(this.extractData)
 								.catch(this.handleError);		
 	}
 
-	deleteItem(id : number){
-		return this._httpService.delete(this.apiUrl + id)
+	deleteItem(key: string, val: number){
+		// alert(this.apiUrl + "/?" + key + "=" + val);
+		return this._httpService.delete(this.apiUrl + "/" + val, this.options)
 								.map(this.extractData)
 								.catch(this.handleError);
 	}
