@@ -35,7 +35,7 @@ export class TypeProductComponent implements OnInit {
             this.products = products;                
             this.filteredProducts = this.products.filter(data=>data.product_type===this.product_type_value);
         },
-        error => this.errorMessage = <any>error); 
+        error => this.errorMessage = <any>error);                                                                                                                                                                                 
     }
 
     ngOnInit(): void {
