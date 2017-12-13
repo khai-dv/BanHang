@@ -45,6 +45,15 @@ export class ProductListComponent implements OnInit {
         //             this.alertService.error(error);
         //         });        
     }
+    public viewDetails(id:number){
+
+        let navigationExtras: NavigationExtras = {
+            queryParams: {
+                "itemsearch": id,
+            }
+          };
+          this.router.navigate(["productDetails"], navigationExtras); 
+    }
     // public viewDetails=(product_id: number)=>{
     //     let data: NavigationExtras = {
     //         queryParams: {

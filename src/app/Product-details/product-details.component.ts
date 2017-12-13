@@ -23,14 +23,14 @@ import { AppGlobals } from '../app.globals';
     templateUrl: './product-details.component.html',
     providers: [ProductService]
 })
-export class ProductDetailsComponent implements OnInit, OnDestroy {
+export class ProductDetailsComponent implements OnInit {
     pageTitle: string = 'Product Detail';
-    product: IProduct;
-    productID: any;
+    public product: any={};
+    public productID: number;
     // product: any = {};
-    imageUrl: string;
+    // imageUrl: string;
     errorMessage: string;
-    private sub: Subscription;
+    // private sub: Subscription;
 
     constructor(private route: ActivatedRoute,
         private router: Router,
@@ -39,18 +39,29 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         public mygb: AppGlobals) {
 
         this.mygb.shareObj['namepage'] = 'productDetails';
-    }
 
-    ngOnInit(): void {
-        this.sub = this.route.params.subscribe(params => {
-            console.log(this.productID);
+        this.ac_route.queryParams.subscribe(params => {
+            this.productID = parseInt( params["itemsearch"]);
+            // alert("AAA" + this.productID);
             this.getProduct(this.productID);
-        });
+            });
+    }
+    ngOnInit(): void {
+        
+        // this.sub = this.route.params.subscribe(params => {
+        //     console.log(this.productID);
+        //     this.getProduct(this.productID);
+        // });
+
+        this.getProduct(this.productID);
     }
 
-    ngOnDestroy() {
-        this.sub.unsubscribe();
-    }
+
+    // ngOnDestroy() {
+    //     this.sub.unsubscribe();
+    // }
+
+
 
     getProduct(id: number) {
         this.productService.getItem(id).subscribe(
@@ -61,9 +72,9 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
             error => this.errorMessage = <any>error);
     }
 
-    onBack(): void {
-        this.router.navigate(['/products']);
-    }
+    // onBack(): void {
+    //     this.router.navigate(['/products']);
+    // }
 
     // onRatingClicked(message: string): void {
     //     this.pageTitle = 'Product Detail: ' + message;

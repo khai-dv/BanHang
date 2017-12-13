@@ -24,6 +24,7 @@ const appRoutes: Routes = [
     { path: 'four-col', component: FourColComponent, },
     { path: 'products/:id',component: ProductDetailsComponent,},
     { path: 'typeProduct', component: TypeProductComponent, },
+    { path: 'productDetails', component: ProductDetailsComponent, },
     { path: 'cart', component: CartshopComponent, },
     { path: 'cartshop', component: CartshopComponent, },
     { path: 'register', component: RegisterComponent, },

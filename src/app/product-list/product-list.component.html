@@ -23,7 +23,8 @@
 						<!-- <a (click)="viewDetails(pro.product_id)" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
 						<a (click)="viewDetails(pro.product_id)" class="shopBtn">VIEW</a> -->
 						<a routerLink ="/products/{{pro.product_id}}" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
-						<a routerLink ="/products/{{pro.product_id}}" class="shopBtn">VIEW</a>
+						<!-- <a routerLink ="/products/{{pro.product_id}}" class="shopBtn">VIEW</a> -->
+						<a routerLink ="productDetails" (click)="viewDetails(pro.product_id)" class="shopBtn">VIEW</a>
 					</div>
 					</form>
 				</div>
