@@ -1,52 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IProduct } from '../defines/product.interface';
-import { ProductService } from '../services/product.service';
+import { ICart } from '../defines/cart.interface';
+import { CartshopService } from '../services/cartshop.service';
 import { AppGlobals } from '../app.globals';
 
 @Component({
-    selector: 'app-cart',
-    templateUrl: './cart.component.html',
-    providers: [ProductService] 
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  providers: [CartshopService]
 })
 
-export class CartComponent implements OnInit {  
+export class CartComponent implements OnInit {
 
   errorMessage: string;
 
-  _listFilter: string;
-  filteredProducts: IProduct[];
-  products: IProduct[] ;
+  pro_carts: ICart[];
   TotalItem: number;
-  get listFilter(): string {
-      return this._listFilter;
-  }
-  set listFilter(value: string) {
-    this._listFilter = value;
-    this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
+
+  constructor(private _cartService: CartshopService,
+    public mygb: AppGlobals) {
+    this.mygb.shareObj['namepage'] = 'cart';
   }
 
-  constructor(private _productService: ProductService,
-              public mygb : AppGlobals) {
-      
-    this.mygb.shareObj['namepage']='cart';
-  }
-
-  performFilter(filterBy: string): IProduct[] {
+  performFilter(filterBy: string): ICart[] {
     filterBy = filterBy.toLocaleLowerCase();
-    return this.products.filter((product: IProduct) =>
-            product.product_name.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    return this.pro_carts.filter((product: ICart) =>
+      product.product_name.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
-  
+
   ngOnInit(): void {
-    this._productService.getItems()
-    .subscribe(products => {
-      // set items to json response
-      this.products = products;
-      this.filteredProducts = this.products;
-      this.TotalItem = products.length;
-    },
+    this.LoadData();
+  }
+
+  LoadData(){
+    this._cartService.getItems()
+      .subscribe(pro_carts => {
+        // set items to json response
+        this.pro_carts = pro_carts;
+        this.TotalItem = pro_carts.length;
+      },
       error => this.errorMessage = <any>error);
   }
-    
+  // --------------------------------------------------
+
+  Delete(id:number){
+    this._cartService.Delete(id)
+        .subscribe(res =>{
+            if(res){
+                this.LoadData();
+            }
+        })
+  }
 }
