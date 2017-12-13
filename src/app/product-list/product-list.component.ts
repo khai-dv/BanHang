@@ -32,37 +32,14 @@ export class ProductListComponent implements OnInit {
             error => {
                 this.alertService.error(error);
             });
-
-        // this.productService.getItems().map(pros => {
-        //     return pros.filter(item => item.product_name == 'product_name 1' && item.product_code == "1508121509");
-        // }).subscribe(products => {
-        //             // set items to json response
-        //             this.products = products;
-        //             console.log(this.products.length);
-
-        //         },
-        //         error => {
-        //             this.alertService.error(error);
-        //         });        
     }
-    public viewDetails(id:number){
+    // public viewDetails(id:number){
 
-        let navigationExtras: NavigationExtras = {
-            queryParams: {
-                "itemsearch": id,
-            }
-          };
-          this.router.navigate(["productDetails"], navigationExtras); 
-    }
-    // public viewDetails=(product_id: number)=>{
-    //     let data: NavigationExtras = {
+    //     let navigationExtras: NavigationExtras = {
     //         queryParams: {
-    //             "product_id": product_id,
+    //             "itemsearch": id,
     //         }
     //       };
-    //     this.router.navigate(["/products/:id"],data);
-    // }
-    // public function viewDetails(product_id: number){
-    //     this.router.navigate([`/products/${product_id}`]);
+    //       this.router.navigate(["productDetails"], navigationExtras); 
     // }
 }
