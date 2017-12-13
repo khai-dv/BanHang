@@ -2,15 +2,8 @@
 	<app-sidebar></app-sidebar>
 	<div class="span9">
 		<ul class="breadcrumb">
-			<li>
-				<a href="index.html">Home</a>
-				<span class="divider">/</span>
-			</li>
-			<!--<li><a [routerLink]="['/products']">Home</a> <span class="divider">/</span></li>-->
-			<li>
-				<a href="./product/products.component.html">Items</a>
-				<span class="divider">/</span>
-			</li>
+			<li><a [routerLink]="['/home']">Home</a> <span class="divider">/</span></li>
+			<li><a [routerLink]="['/productlist']">Items</a> <span class="divider">/</span></li>
 			<li class="active">Preview</li>
 		</ul>
 		<div class="well well-small">
@@ -21,7 +14,6 @@
 							<div class="item active">
 								<a href="#">
 									<img src="{{product.imageUrl}}" alt="" style="width:100%">
-									<!-- <img [(ngModel)]="product.imageUrl" name="imageUrl" src="ngModel" alt="" style="width:100%"> -->
 								</a>
 							</div>
 							<div class="item">
