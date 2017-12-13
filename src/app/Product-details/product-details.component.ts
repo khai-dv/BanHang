@@ -38,22 +38,21 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         private productService: ProductService,
         public mygb: AppGlobals) {
 
-        this.mygb.shareObj['namepage'] = 'productlist';
-        this.ac_route.queryParams.subscribe(params => {
-            this.productID = params["product_id"];
-        });
+        this.mygb.shareObj['namepage'] = 'productDetails';
     }
 
     ngOnInit(): void {
-        this.getProduct(this.productID);
-        console.log("onInit" + this.product);
+        this.sub = this.route.params.subscribe(params => {
+            console.log(this.productID);
+            this.getProduct(this.productID);
+        });
     }
 
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
 
-    getProduct(id: any) {
+    getProduct(id: number) {
         this.productService.getItem(id).subscribe(
             product => {
                 console.log(product);
