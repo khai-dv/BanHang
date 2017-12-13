@@ -14,6 +14,7 @@ import { SearchComponent } from './search/index';
 import { LoginComponent } from './login/index';
 import { CartshopComponent } from './cartshop/index';
 import { AdminComponent } from './admin/index';
+import { ProductFavoriteComponent } from './product-favorite/index';
 
 const appRoutes: Routes = [
     // { path: '', component: HomeComponent},
@@ -21,10 +22,11 @@ const appRoutes: Routes = [
     { path: 'aboutUs', component: AboutUsComponent },
     { path: 'body', component: BodyComponent },
     { path: 'productlist', component: ProductListComponent, },
-    { path: 'four-col', component: FourColComponent, },
+    { path: 'productfavorite', component: ProductFavoriteComponent, },
     { path: 'products/:id',component: ProductDetailsComponent,},
     { path: 'typeProduct', component: TypeProductComponent, },
-    { path: 'cart', component: CartComponent, },
+    { path: 'productDetails', component: ProductDetailsComponent, },
+    { path: 'cart', component: CartshopComponent, },
     { path: 'cartshop', component: CartshopComponent, },
     { path: 'register', component: RegisterComponent, },
     { path: 'contact', component: ContactComponent, },

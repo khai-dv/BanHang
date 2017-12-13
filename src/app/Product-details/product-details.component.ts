@@ -17,20 +17,19 @@ import { Subscription } from 'rxjs/Subscription';
 import { IProduct } from '../defines/product.interface';
 import { ProductService } from '../services/product.service';
 import { AppGlobals } from '../app.globals';
+import { ActivatedRouteSnapshot } from '@angular/router/src/router_state';
+import { Observable } from "rxjs/Rx";
 
 @Component({
     selector: 'app-product-details',
     templateUrl: './product-details.component.html',
     providers: [ProductService]
 })
-export class ProductDetailsComponent implements OnInit, OnDestroy {
+export class ProductDetailsComponent implements OnInit {
     pageTitle: string = 'Product Detail';
-    product: IProduct;
-    productID: any;
-    // product: any = {};
-    imageUrl: string;
+    public product: any = {};
+    public productID: number;
     errorMessage: string;
-    private sub: Subscription;
 
     constructor(private route: ActivatedRoute,
         private router: Router,
@@ -42,30 +41,17 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.sub = this.route.params.subscribe(params => {
-            console.log(this.productID);
+        this.route.params.subscribe(params => {
+            this.productID = +params['id'];
             this.getProduct(this.productID);
         });
     }
-
-    ngOnDestroy() {
-        this.sub.unsubscribe();
-    }
-
+    
     getProduct(id: number) {
         this.productService.getItem(id).subscribe(
             product => {
-                console.log(product);
                 this.product = product
             },
             error => this.errorMessage = <any>error);
     }
-
-    onBack(): void {
-        this.router.navigate(['/products']);
-    }
-
-    // onRatingClicked(message: string): void {
-    //     this.pageTitle = 'Product Detail: ' + message;
-    // }
 }

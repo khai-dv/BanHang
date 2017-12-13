@@ -35,32 +35,22 @@ export class LoginComponent implements OnDestroy  {
      CheckLogin(value: any) {
        if(document.getElementById('model_loggin').innerHTML=="Sign in") {
             this.usertrue=false;
-                for (let us of this.users){
-                    if (value.username==us.username&&value.password==us.password){
-                        this.usertrue=true;
-                        this.username=us.username;
-                    }
-                }
-                if(this.usertrue){
-                    this.router.navigate(['/home']); 
-                    document.getElementById('model_account').innerHTML=" " + this.username;
-                    document.getElementById('model_loggin').innerHTML="Sign out";
+            for (let us of this.users){
+                if (value.username==us.username&&value.password==us.password){
+                    this.usertrue=true;
+                    this.username=us.username;
                     alert("Sign in successful");
+                    
                 }
-                else{
-                    document.getElementById('model_account').innerHTML=" My Account";
-                    document.getElementById('model_loggin').innerHTML="Sign in";
-                    alert("Sign in Error!");
-                }
+            }
+            if (this.usertrue==false){
+                alert("Tài khoản không tồn tại!");
+            }
         }
         else{
-            this.username=""
+            this.username="";
             this.password="";
-            document.getElementById('model_account').innerHTML=" My Account";
-            document.getElementById('model_loggin').innerHTML="Sign in";
-            alert("Sign out successful");
         }
-        this.modal_idLogin.click();
     }
 
     public AddDataForm(username: string, password:string, mode: boolean){
@@ -68,7 +58,6 @@ export class LoginComponent implements OnDestroy  {
         if (mode==true){
             this.modal_idUname.value = username 
             this.modal_idPword.value = password
-            // this.modal_idLogin.click();
         }
     }
     onSignIn(googleUser) {
@@ -96,8 +85,6 @@ export class LoginComponent implements OnDestroy  {
       (data) => {
                   console.log(data);
                   this.user_auth=data;
-                  //user data 
-                  //name, image, uid, provider, uid, email, token (accessToken for Facebook & google, no token for linkedIn), idToken(only for google) 
                 }
     )
   }
