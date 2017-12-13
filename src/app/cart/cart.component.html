@@ -17,16 +17,18 @@
           <tr *ngFor="let pro of pro_carts; let i = index">
             <td><img width="100" src="{{pro.imageUrl}}" alt=""></td>
             <td>Tên sản phẩm: {{pro.product_name}}<br>Mô tả: {{pro.product_detail}}</td>
-            <td>${{pro.price | number: '1.2-2'}}</td>
-            <td><div class="controls">	<input type="number" class="span1" value="1"></div> </td>
+            <td> <p >${{pro.price | number: '1.2-2'}}</p></td>
+            <td><div class="controls">	
+              <input type="number" class="span1" value="{{pro.quality}}" #textAmount (click)="Cash(textAmount.value, pro.price, pro.product_id)">
+              </div> </td>
             <td>
-              <div align="left" >${{pro.price * 2 | number: '1.2-2'}} </div>
-              <div align="right" ><button class="btn btn-sm" type="button" (click)="Delete(pro.id)"><span class="icon-trash"></span></button></div>
+              <div id ="total_money" align="left" >${{pro.total | number: '1.2-2'}} </div>
+              <div align="right" ><button class="btn btn-sm" type="button" (click)="Delete(pro.product_id)"><span class="icon-trash"></span></button></div>
             </td>
           </tr>
           <tr>
             <td colspan="4" class="alignR">Total products: </td>
-            <td class="label label-primary"> $448.42</td>
+            <td class="label label-primary"> ${{Money | number: '1.2-2'}}</td>
           </tr>
         </tbody>
       </table><br/>
@@ -43,35 +45,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
-      <table class="table table-bordered">
-        <tbody>
-          <tr><td>ESTIMATE YOUR SHIPPING & TAXES</td></tr>
-          <tr> 
-            <td>
-              <form class="form-horizontal">
-                <div class="control-group">
-                <label class="span2 control-label" for="inputEmail">Country</label>
-                <div class="controls">
-                    <input type="text" placeholder="Country">
-                </div>
-                </div>
-                <div class="control-group">
-                <label class="span2 control-label" for="inputPassword">Post Code/ Zipcode</label>
-                <div class="controls">
-                    <input type="password" placeholder="Password">
-                </div>
-                </div>
-                <div class="control-group">
-                <div class="controls">
-                    <button type="submit" class="shopBtn">Click to check the price</button>
-                </div>
-                </div>
-              </form> 
-            </td>
-          </tr>
-        </tbody>
-      </table>		
+      </table>	
       <a routerLink="productlist" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue Shopping </a>
       <a href="login.html" class="shopBtn btn-large pull-right">Next <span class="icon-arrow-right"></span></a>
     </div>
