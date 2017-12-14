@@ -16,10 +16,10 @@ export class ProductService {
 	// Put Edit Item : http://58e605d279739c1200ed3c82.mockapi.io/api/users/:id
 	// Delete Item : http://58e605d279739c1200ed3c82.mockapi.io/api/users/:id
 	//private apiUrl = 'http://59d448b95803340011fd5f25.mockapi.io/products/'	
-	private apiUrl = "http://5a31f7dabd9f1c00120b6551.mockapi.io/Products" //<- Luan- Test
+	//private apiUrl = "http://5a31f7dabd9f1c00120b6551.mockapi.io/Products" //<- Luan- Test
 	//private apiUrl = "http://59d448b95803340011fd5f25.mockapi.io/products" //<- Thang- Test
 
-	// private apiUrl = "http://59df404db11b290012f17b88.mockapi.io/products" 
+	 private apiUrl = "http://59df404db11b290012f17b88.mockapi.io/products" 
 
 	headers: Headers;
     options: RequestOptions;
