@@ -4,4 +4,6 @@ export interface ICart{
 	price : number;
 	imageUrl : string;
 	product_detail : string;
+	quality : number;
+	total : number;
 }

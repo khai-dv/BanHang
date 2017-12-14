@@ -3,6 +3,7 @@
     <h3>Admin Pages </h3>
     <hr class="soften"> 
     <div class="row-fluid" >
+        <button name="nm_smDelProduct" ng-model="nm_smDelProduct" (click)="DeleteProducts()" ng-disabled="isDisabled">Delete Products</button>
         <button name="nm_smImProduct" ng-model="nm_smImProduct" (click)="ImportProducts()" ng-disabled="isDisabled">Import Products</button>
     </div>
 </div>

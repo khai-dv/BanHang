@@ -47,61 +47,13 @@
 			<div class="row-fluid">
 				<div id="newProductCar" class="carousel slide">
 					<div class="carousel-inner">
-						<div class="item active">
+						<div class="item" *ngFor ="let x of products; let i=index" ng-if="i % 4 == 0">
 							<ul class="thumbnails">
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+								<li class="span3" *ngFor ="let pro of [products[i],products[i+1],products[i+2],products[i+3]]">
+									<div class="thumbnail" *ngIf="pro">
+										<a class="zoomTool" routerLink ="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
 										<a href="#" class="tag"></a>
-										<a href="product_details.html"><img src="assets/img/0000000001.jpg" alt="bootstrap-ring"></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-										<a href="#" class="tag"></a>
-										<a href="product_details.html"><img src="assets/img/0000000002.jpg" alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-										<a href="#" class="tag"></a>
-										<a href="product_details.html"><img src="assets/img/0000000010.jpg" alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-										<a href="product_details.html"><img src="assets/img/0000000012.jpg" alt=""></a>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="item">
-							<ul class="thumbnails">
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" routerLink="productDetail" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-										<a routerLink="productDetail"><img src="assets/img/0000000004.PNG" alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-										<a href="product_details.html"><img src="assets/img/0000000008.jpg" alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-										<a href="product_details.html"><img src="assets/img/0000000013.jpg" alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-										<a href="product_details.html"><img src="assets/img/0000000016.png" alt=""></a>
+										<a routerLink ="/products/{{pro.product_id}}"><img src="{{pro.imageUrl}}" alt="bootstrap-ring"></a>
 									</div>
 								</li>
 							</ul>
@@ -117,48 +69,24 @@
 				<hr class="soften" />
 				<div class="row-fluid">
 					<ul class="thumbnails">
-						<li class="span4">
-							<div class="thumbnail">
-								<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-								<a href="product_details.html"><img src="assets/img/trangsuc2.jpg" alt=""></a>
-								<div class="caption">
-									<h5>Manicure & Pedicure</h5>
-									<h4>
-										<a class="defaultBtn" href="product_details.html" title="Click to view"><span class="icon-zoom-in"></span></a>
-										<a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
-										<span class="pull-right">$22.00</span>
-									</h4>
-								</div>
+						<div *ngFor ="let pro of products; let i=index">
+							<div *ngIf="i<3">
+								<li class="span4">
+									<div class="thumbnail">
+										<a class="zoomTool" routerLink ="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+										<a routerLink ="/products/{{pro.product_id}}"><img src="{{pro.imageUrl}}" alt=""></a>
+										<div class="caption">
+											<h5>{{pro.product_name}}</h5>
+											<h4>
+												<a class="defaultBtn" routerLink ="/products/{{pro.product_id}}" title="Click to view"><span class="icon-zoom-in"></span></a>
+												<a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
+												<span class="pull-right">${{pro.price | number: '1.2-2'}}</span>
+											</h4>
+										</div>
+									</div>
+								</li>	
 							</div>
-						</li>
-						<li class="span4">
-							<div class="thumbnail">
-								<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-								<a href="product_details.html"><img src="assets/img/trangsuc1.jpg" alt=""></a>
-								<div class="caption">
-									<h5>Manicure & Pedicure</h5>
-									<h4>
-										<a class="defaultBtn" href="product_details.html" title="Click to view"><span class="icon-zoom-in"></span></a>
-										<a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
-										<span class="pull-right">$22.00</span>
-									</h4>
-								</div>
-							</div>
-						</li>
-						<li class="span4">
-							<div class="thumbnail">
-								<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-								<a href="product_details.html"><img src="assets/img/trangsuc3.jpg" alt=""/></a>
-								<div class="caption">
-									<h5>Manicure & Pedicure</h5>
-									<h4>
-										<a class="defaultBtn" href="product_details.html" title="Click to view"><span class="icon-zoom-in"></span></a>
-										<a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
-										<span class="pull-right">$22.00</span>
-									</h4>
-								</div>
-							</div>
-						</li>
+						</div>					
 					</ul>
 				</div>
 			</div>

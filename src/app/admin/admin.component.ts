@@ -25,6 +25,24 @@ export class AdminComponent implements OnInit {
     this.mygb.shareObj['namepage']='admin';
   }
 
+
+  ngOnInit(): void {
+    this.LoadProducts();
+  }
+
+  public LoadProducts(){
+    this.products =[];
+    this._productService.getItems()
+    .subscribe(products => {
+        // set items to json response
+        this.products = products;
+    },
+    error => this.errorMessage = error);
+  }
+  public DeleteProducts(){
+    this.DeleteAll();
+  }
+
   public ImportProducts(pdService:ProductService){
     this.isDisabled = false;
     this.ReadExcel(this._productService);
@@ -35,9 +53,6 @@ export class AdminComponent implements OnInit {
   }
 
   public ReadExcel(pdService:ProductService){
-  
-    this.DeleteAll();
-
     this.makeFileRequest(function(result){
       //do whatever you want now with the output data
       //console.log(result);
@@ -50,23 +65,47 @@ export class AdminComponent implements OnInit {
       });
     });
   }
-  
+
   DeleteAll():void{
-    this._productService.getItems()
-    .subscribe(products => {
-      // set items to json response
-      products.map(element => {
-        //alert(element.product_id);
-        this._productService.deleteItem("id",element.product_id)
-        .subscribe(
-          result => console.log(result),
-          error => this.errorMessage = error
-        );  
-      });
-  
-    },
-      error => this.errorMessage = <any>error);
+    var CNT = 0
+    do{
+      for (let item of this.products){
+
+        this._productService.deleteItem("id",item.product_id)
+          .subscribe(
+            result => console.log(result),
+            error => this.errorMessage = error
+          );  
+      }
+      this.LoadProducts();
+    }while(this.products.length>0);
+
+    setTimeout(() => {
+      alert(this.products.length>0);
+      alert("Delete thành công!!!");
+    }, 5000);
+    
+    
   }
+  
+  // DeleteAll():void{
+  //   this._productService.getItems()
+  //   .subscribe(products => {
+  //     // set items to json response
+  //     products.map(element => {
+  //       //alert(element.product_id);
+  //       this._productService.deleteItem("id",element.product_id)
+  //       .subscribe(
+  //         result => console.log(result),
+  //         error => this.errorMessage = error
+  //       );  
+  //     });
+  
+  //   },
+  //     error => this.errorMessage = <any>error);
+  // }
+
+  
 
   makeFileRequest(callback){
 
@@ -164,8 +203,6 @@ export class AdminComponent implements OnInit {
     //   });
     // }
 
-  ngOnInit(): void {
 
-  }
     
 }

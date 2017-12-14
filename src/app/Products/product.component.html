@@ -3,9 +3,7 @@
     <a class="zoomTool" routerLink ="/products/{{product.product_id}}" title="add to cart"><span class="icon-search"></span>QUICK VIEW</a>
     <a routerLink ="/products/{{product.product_id}}"><img src="{{product.imageUrl}}" alt=""></a>
     <div class="caption cntr">
-        <!--<a [routerLink]="['detail/'{{product.product_id}}]">{{product.product_name}}</a>-->
-        <a routerLink="detail" routerLinkActive="active" (onClick)="ViewProduct(product.product_id)">{{product.product_name}}</a>
-        <!--<p>{{product.product_name}}</p>-->
+        <a routerLink ="/products/{{product.product_id}}">{{product.product_name}}</a>
         <p><strong>${{product.price | number: '1.2-2'}}</strong></p>
         <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
         <div class="actionList">

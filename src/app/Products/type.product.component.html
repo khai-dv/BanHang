@@ -1,29 +1,25 @@
-<div class="row">
-  <app-sidebar></app-sidebar>  
-
-  <div class="span9">
-
-      <!-- <div  *ngIf="(filteredProducts)?.length  <= 0">
-          <p>Your search <b>"{{product_type_value}}"</b> did not match any products.</p>
-        </div> -->
-
-    <h3>Our Products</h3>
-
-    <div *ngFor="let pro of filteredProducts ; let i = index">    
-      <div *ngIf="i % 3 === 0">
-        <ul class="thumbnails" *ngIf="i % 3 === 0">
-          <li class="span3">
-            <app-product [product]="filteredProducts[i]"></app-product>
-          </li>
-          <li class="span3" *ngIf="filteredProducts[i + 1]">
-            <app-product [product]="filteredProducts[i+1]"></app-product>
-          </li>
-          <li class="span3" *ngIf="filteredProducts[i + 2]">
-            <app-product [product]="filteredProducts[i+2]"></app-product>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div>
+	<app-sidebar></app-sidebar>
 </div>
-
+<div>
+	<ul class="thumbnails">
+		<li class="span4" style="width:210px;height:350px" *ngFor ="let pro of filteredProducts | paginate: {itemsPerPage:6, currentPage:page, id: '1'}; let i = index" >
+		<div class="thumbnail">
+			<a tooltip="{{pro.product_detail}}" placement="right" show-delay="500"><img src="{{pro.imageUrl}}" alt=""></a>
+			<div class="caption cntr">
+				<p>{{pro.product_name}}</p>
+				<p><strong> ${{pro.price | number: '1.2-2'}}</strong></p>
+				<h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+				<br class="clr">
+			</div>
+		</div>
+		</li>
+	</ul>
+	<div style="text-align: center" >
+		<pagination-controls (pageChange)="page = $event" id="1"
+			maxSize="6"
+			directionLinks="true"
+			autoHide="true">
+		</pagination-controls>
+	</div>	
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 
 import { IProduct } from '../defines/product.interface';

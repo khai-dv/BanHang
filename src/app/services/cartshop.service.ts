@@ -10,11 +10,12 @@ import { ICart } from '../defines/cart.interface';
 
 @Injectable()
 export class CartshopService {
-	private apiUrl = "http://5959e6fe670ebd0011b8fa37.mockapi.io/app/cartshop" 
+	private apiUrl = "http://59df404db11b290012f17b88.mockapi.io/proCarts" 
 
 	private data:ICart[];
 
-	constructor(private _httpService : Http) {}
+	constructor(private _httpService : Http) {
+	}
 
 	Search(key:string):Observable<any[]>{
 		return this._httpService.get(this.apiUrl + "?search=" + key)
@@ -24,6 +25,19 @@ export class CartshopService {
 	Delete(id:number):Observable<any[]>{
 		return this._httpService.delete(this.apiUrl + "/" + id)
 								.map((res:Response) => res.json())
+	}
+
+	// editItem(id : number, cart : ICart){
+	// 	let headers = new Headers({ 'Content-Type': 'application/json' });
+    // 	let options = new RequestOptions({ headers: headers });
+	// 	return this._httpService.put(this.apiUrl +"/" + id, cart, options)
+	// 							.map(this.extractData)
+	// 							.catch(this.handleError);		
+	// }
+
+	public editItem(id : number, cart : ICart):Observable<any[]>{
+		return this._httpService.put(this.apiUrl +"/" + id, cart)
+								.map((res:Response) => res.json())	
 	}
 
 	// '-----------------
