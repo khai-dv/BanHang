@@ -34,6 +34,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.LoadData();
+    // this.Money = 0;
+    // for(var i = 0; i< this.TotalItem ;i++){
+    //       this.Money = this.Money + this.pro_carts[i].total;
+    // }
   }
 
   LoadData(){
@@ -43,14 +47,16 @@ export class CartComponent implements OnInit {
         this.pro_carts = [];
         this.pro_carts = pro_carts;
         this.TotalItem = pro_carts.length;
+        this.Money = 0;
         for(let i of pro_carts){
-          this.Money=this.Money + i.total
-        }
+          this.Money = this.Money + i.total;
+        }        
       },
       error => this.errorMessage = <any>error);
+
+     
   }
   // -------------------------------------------------
-
   
   Delete(id:number){
     this._cartService.Delete(id)
@@ -64,40 +70,27 @@ export class CartComponent implements OnInit {
   Cash(amount:number, price:number, id: number){
     this.total= amount * price;
     this.total_money = "$" + this.total
-    
-    //document.getElementById('total_money').innerHTML=this.total_money;
-    // ---------------------------------------------------
+    // --------------------------------------------
+    var index = this.pro_carts.map(item =>{
+      return item.product_id;
+    }).indexOf(id);
 
-    this._cartService.getItem(id)
-      .subscribe(pro => {
-        // set items to json response
-        this.pduct.product_id =id;
-        // this.pduct.product_name = pro.product_name;
-        // this.pduct.price = pro.price;
-        // this.pduct.imageUrl = pro.imageUrl;
-        // this.pduct.product_detail = pro.product_detail;
+    var cart_arr = this.pro_carts[index];
+    console.log(cart_arr);
 
-        this.pduct.quality = amount;
-        this.pduct.total = this.total;
+    cart_arr.quality = amount;
+    cart_arr.total = this.total;
+    console.log(cart_arr.total );
 
-      }, error => this.errorMessage = <any>error);
-    //------------
-
-    // this.Delete(id);
-    // this._cartService.addItem(this.pduct).subscribe(res =>{
-    //         if(res){
-    //             this.LoadData();
-    //         }
-    //     }); 
-
-    this._cartService.editItem(id,this.pduct)
-    .subscribe(res =>{
-      console.log(this.pduct)
-      this.LoadData();
-        // if(res){
-        //     this.LoadData();
-        // }
+    this.Money = 0;
+    this.pro_carts.map(item =>{
+      this.Money = this.Money + item.total;
     })
 
+    this._cartService.editItem(id,cart_arr)
+    .subscribe(res =>{
+      console.log(cart_arr)
+        if(res){}
+    })
   }
 }
