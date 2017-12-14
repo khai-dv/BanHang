@@ -9,7 +9,7 @@
 			<div class="caption cntr">
 				<p>{{pro.product_name}}</p>
 				<p><strong> ${{pro.price | number: '1.2-2'}}</strong></p>
-				<h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+				<h4><a (click)="addCart(pro.product_id)" class="shopBtn" title="add to cart"> Add to cart </a></h4>
 				<br class="clr">
 			</div>
 		</div>

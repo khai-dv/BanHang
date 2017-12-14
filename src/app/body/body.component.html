@@ -42,7 +42,7 @@
 
 		<!--New Products-->
 		<div class="well well-small">
-			<h3>New Products </h3>
+			<h3>Sản phẩm mới </h3>
 			<hr class="soften" />
 			<div class="row-fluid">
 				<div id="newProductCar" class="carousel slide">
@@ -51,7 +51,7 @@
 							<ul class="thumbnails">
 								<li class="span3" *ngFor ="let pro of [products[i],products[i+1],products[i+2],products[i+3]]">
 									<div class="thumbnail" *ngIf="pro">
-										<a class="zoomTool" routerLink ="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+										<a class="zoomTool" routerLink ="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> XEM NGAY</a>
 										<a href="#" class="tag"></a>
 										<a routerLink ="/products/{{pro.product_id}}"><img src="{{pro.imageUrl}}" alt="bootstrap-ring"></a>
 									</div>
@@ -65,7 +65,7 @@
 			</div>
 
 			<div class="well well-small">
-				<h3><a class="btn btn-mini pull-right" routerLink="four-col" title="View more">VIew More<span class="icon-plus"></span></a>Featured Products </h3>
+				<h3><a class="btn btn-mini pull-right" routerLink="four-col" title="View more">Xem nhiều hơn<span class="icon-plus"></span></a>Sản phẩm nổi bật </h3>
 				<hr class="soften" />
 				<div class="row-fluid">
 					<ul class="thumbnails">
@@ -73,7 +73,7 @@
 							<div *ngIf="i<3">
 								<li class="span4">
 									<div class="thumbnail">
-										<a class="zoomTool" routerLink ="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+										<a class="zoomTool" routerLink ="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> XEM NGAY</a>
 										<a routerLink ="/products/{{pro.product_id}}"><img src="{{pro.imageUrl}}" alt=""></a>
 										<div class="caption">
 											<h5>{{pro.product_name}}</h5>
