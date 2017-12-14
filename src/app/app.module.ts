@@ -25,6 +25,7 @@ import { LoginComponent } from './login/index';
 import { CartshopComponent } from './cartshop/index';
 import { AdminComponent } from './admin/index';
 import { ProductFavoriteComponent } from './product-favorite/index';
+import { TooltipDirective } from 'ng2-tooltip-directive/components';
 
 let providers = {
     "google": {
@@ -64,7 +65,8 @@ let providers = {
     GeneralContentComponent,
     CartshopComponent,
     AdminComponent,
-    ProductFavoriteComponent
+    ProductFavoriteComponent,
+    TooltipDirective
   ],
   imports: [
     BrowserModule,
