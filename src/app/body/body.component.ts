@@ -26,8 +26,7 @@ export class BodyComponent {
       this.productService.getItems()
           .subscribe(products => {
               // set items to json response
-              this.products = products;              
-              console.log(this.products);
+              this.products = products;           
           },
           error => {
               this.alertService.error(error);
