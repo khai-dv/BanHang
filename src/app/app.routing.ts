@@ -17,7 +17,7 @@ import { AdminComponent } from './admin/index';
 import { ProductFavoriteComponent } from './product-favorite/index';
 
 const appRoutes: Routes = [
-    // { path: '', component: HomeComponent},
+    { path: '', component: HomeComponent},
     { path: 'home', component: HomeComponent },
     { path: 'aboutUs', component: AboutUsComponent },
     { path: 'body', component: BodyComponent },
@@ -33,8 +33,8 @@ const appRoutes: Routes = [
     { path: 'search', component: SearchComponent, },
     { path: 'login', component: LoginComponent },
     { path: 'generalContent', component: GeneralContentComponent },
-    { path: 'admin', component: AdminComponent }
-    // { path: '**', redirectTo: '' }
+    { path: 'admin', component: AdminComponent },
+    { path: '**', redirectTo: '' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
