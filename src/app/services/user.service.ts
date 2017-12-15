@@ -17,7 +17,7 @@ export class UserService {
 	// Delete Item : http://58e605d279739c1200ed3c82.mockapi.io/api/users/:id
 	//private apiUrl = 'http://59d448b95803340011fd5f25.mockapi.io/users/'
 	//private apiUrl = 'http://59d464da5803340011fd5f49.mockapi.io/V1/Users'
-	private apiUrl = "http://59d464da5803340011fd5f49.mockapi.io/V1/Users"
+	private apiUrl = "http://5a31f7dabd9f1c00120b6551.mockapi.io/Users" //<- Luan - Test
 
 	constructor(
 		private _httpService : Http
