@@ -22,7 +22,6 @@
         </div>
       </li>      
 			<li style="border:0"> &nbsp;</li>
-			<li> <a class="totalInCart" routerLink="cart"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
 		</ul>
 	</div>
 
@@ -31,11 +30,24 @@
 	<ul class="nav nav-list promowrapper">
 		<li>
 			<div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+				<!-- <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
 				<img src="assets/img/bootstrap-template.png" alt="bootstrap template">
 				<div class="caption">
 					<h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
+				</div> -->
+				<div id="myCarousel" class="carousel slide cntr">
+						<div class="carousel-inner"> 
+							<div class="item" *ngFor ="let prod of products; let i=index">
+								<a class="zoomTool" routerLink ="/products/{{prod.product_id}}" title="add to cart"><span class="icon-search"></span> Xem chi tiết</a>
+								<img src="{{prod.imageUrl}}">
+								<div class="caption">
+									<h4><a class="defaultBtn" routerLink ="/products/{{prod.product_id}}">Xem ngay</a> <span class="pull-right">${{prod.price | number: '1.2-2'}}</span></h4>
+								</div>
+							</div>
+						</div>
+						<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+						<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+					</div>
 			</div>
 		</li>
 	</ul>

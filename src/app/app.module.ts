@@ -64,7 +64,11 @@ let providers = {
     GeneralContentComponent,
     CartshopComponent,
     AdminComponent,
+<<<<<<< HEAD
     ProductFavoriteComponent,
+=======
+    ProductFavoriteComponent
+>>>>>>> 6693bf8a01cd331c19b88b7345d970c599c30013
   ],
   imports: [
     BrowserModule,

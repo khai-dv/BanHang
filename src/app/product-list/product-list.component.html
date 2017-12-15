@@ -20,7 +20,7 @@
 						<input type="checkbox">  Adds product to compair
 					</label><br>
 					<div class="btn-group">
-						<a routerLink ="/products/{{pro.product_id}}" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
+						<a (click)="addCart(pro.product_id)" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
 						<a routerLink ="/products/{{pro.product_id}}" class="shopBtn">VIEW</a>
 					</div>
 					</form>
