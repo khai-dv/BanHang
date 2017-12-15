@@ -17,7 +17,6 @@ export class CartComponent implements OnInit {
   public filteredICarts: ICart[];
   TotalItem: number;
   Money:number=0;
-  total_money:string;
   total:number;
   pduct:any={};
 
@@ -69,7 +68,6 @@ export class CartComponent implements OnInit {
 
   Cash(amount:number, price:number, id: number){
     this.total= amount * price;
-    this.total_money = "$" + this.total
     // --------------------------------------------
     var index = this.pro_carts.map(item =>{
       return item.product_id;

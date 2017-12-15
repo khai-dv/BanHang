@@ -40,20 +40,20 @@
 			</div>
 		</div>
 
-		<!--New Products-->
+		<!--Sản phẩm mới-->
 		<div class="well well-small">
 			<h3>Sản phẩm mới </h3>
 			<hr class="soften" />
 			<div class="row-fluid">
 				<div id="newProductCar" class="carousel slide">
 					<div class="carousel-inner">
-						<div class="item" *ngFor ="let x of products; let i=index" ng-if="i % 4 == 0">
+						<div class="item" *ngFor="let x of products; let i=index" ng-if="i % 4 == 0">
 							<ul class="thumbnails">
-								<li class="span3" *ngFor ="let pro of [products[i],products[i+1],products[i+2],products[i+3]]">
+								<li class="span3" *ngFor="let pro of [products[i],products[i+1],products[i+2],products[i+3]]">
 									<div class="thumbnail" *ngIf="pro">
-										<a class="zoomTool" routerLink ="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> XEM NGAY</a>
+										<a class="zoomTool" routerLink="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> XEM NGAY</a>
 										<a href="#" class="tag"></a>
-										<a routerLink ="/products/{{pro.product_id}}"><img src="{{pro.imageUrl}}" alt="bootstrap-ring"></a>
+										<a routerLink="/products/{{pro.product_id}}"><img src="{{pro.imageUrl}}" alt="bootstrap-ring"></a>
 									</div>
 								</li>
 							</ul>
@@ -63,32 +63,34 @@
 					<a class="right carousel-control" href="#newProductCar" data-slide="next">&rsaquo;</a>
 				</div>
 			</div>
+		</div>
 
-			<div class="well well-small">
-				<h3><a class="btn btn-mini pull-right" routerLink="four-col" title="View more">Xem nhiều hơn<span class="icon-plus"></span></a>Sản phẩm nổi bật </h3>
-				<hr class="soften" />
-				<div class="row-fluid">
-					<ul class="thumbnails">
-						<div *ngFor ="let pro of products; let i=index">
-							<div *ngIf="i<3">
-								<li class="span4">
-									<div class="thumbnail">
-										<a class="zoomTool" routerLink ="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> XEM NGAY</a>
-										<a routerLink ="/products/{{pro.product_id}}"><img src="{{pro.imageUrl}}" alt=""></a>
-										<div class="caption">
-											<h5>{{pro.product_name}}</h5>
-											<h4>
-												<a class="defaultBtn" routerLink ="/products/{{pro.product_id}}" title="Click to view"><span class="icon-zoom-in"></span></a>
-												<a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
-												<span class="pull-right">${{pro.price | number: '1.2-2'}}</span>
-											</h4>
-										</div>
+		<!--Sản phẩm nổi bật-->
+		<div class="well well-small">
+			<h3><a class="btn btn-mini pull-right" routerLink="/productlist" title="View more">Nhiều hơn<span class="icon-plus"></span></a>Sản phẩm nổi bật </h3>
+			<hr class="soften" />
+			<div class="row-fluid">
+				<ul class="thumbnails">
+					<div *ngFor="let pro of products; let i=index">
+						<div *ngIf="i<3">
+							<li class="span4">
+								<div class="thumbnail">
+									<a class="zoomTool" routerLink="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> XEM NGAY</a>
+									<a routerLink="/products/{{pro.product_id}}"><img src="{{pro.imageUrl}}" alt=""></a>
+									<div class="caption">
+										<h5>{{pro.product_name}}</h5>
+										<h4>
+											<a class="defaultBtn" routerLink="/products/{{pro.product_id}}" title="Click to view"><span class="icon-zoom-in"></span></a>
+											<a class="shopBtn" (click)="addCart(pro.product_id)" title="add to cart"><span class="icon-plus"></span></a>
+											<span class="pull-right">${{pro.price | number: '1.2-2'}}</span>
+										</h4>
 									</div>
-								</li>	
-							</div>
-						</div>					
-					</ul>
-				</div>
+								</div>
+							</li>
+						</div>
+					</div>
+				</ul>
 			</div>
 		</div>
+
 	</div>

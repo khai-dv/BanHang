@@ -11,4 +11,9 @@ export class AppComponent {
   constructor (public mygb : AppGlobals){
     this.mygb.shareObj['namepage']='index';
   }
+  // --------------------------------------------
+  topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
 }
