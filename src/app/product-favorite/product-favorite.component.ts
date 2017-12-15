@@ -11,6 +11,7 @@ import * as glo from '../app.globals';
 @Component({
     selector: 'app-product-favorite',
     templateUrl: './product-favorite.component.html',
+    styleUrls:['./product-favorite.component.css'],
     providers: [ProductService, CartshopService, AlertService]
 })
 
@@ -18,6 +19,9 @@ export class ProductFavoriteComponent implements OnInit {
 
     public products: IProduct[];
     pro_carts: ICart[];
+    public product: any = {};
+    errorMessage: string;
+    public productID: number;
 
     constructor(private router: Router,
         private productService: ProductService,
@@ -65,4 +69,14 @@ export class ProductFavoriteComponent implements OnInit {
         // this.router.navigate(['/header']);
         // this.mygb.shareObj['namepage']='index';
     } 
+
+    getProduct(id: number) {
+        document.getElementById('id01').style.display='block';
+        this.product="";
+        this.productService.getItem(id).subscribe(
+            product => {
+                this.product = product;
+            },
+            error => this.errorMessage = <any>error);
+    }
 }

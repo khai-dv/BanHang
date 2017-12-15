@@ -5,7 +5,7 @@
 			<ul class="thumbnails">
 				<li class="span4" style="width:210px;height:350px" *ngFor="let pro of products | paginate: {itemsPerPage:6, currentPage:page, id: '1'}; let i = index">
 					<div class="thumbnail">
-						<a><img src="{{pro.imageUrl}}" alt=""></a>
+						<a (click)="getProduct(pro.product_id)"><img src="{{pro.imageUrl}}" alt=""></a>
 						<div class="caption cntr">
 							<p>{{pro.product_name}}</p>
 							<p><strong> ${{pro.price | number: '1.2-2'}}</strong></p>
@@ -22,4 +22,19 @@
 		</div>
 	</div>
 </div>
-<router-outlet></router-outlet>
+<!--modal start -->
+<div id="id01" class="w3-modal">
+	<div class="w3-modal-content">
+		<div class="w3-container">
+				<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+				<p class="classimg"><img src="{{product.imageUrl}}"></p>
+				<div class="classmain">
+					<p class="classname"><strong>{{product.product_name}}</strong></p>
+					<!-- <p class="classdetail"><strong>{{product.product_detail}}</strong></p> -->
+					<p class="classdetail"><strong>Sản phảm được nhập lậu từ Ai Cập.</strong></p>
+					<p class="classprice"><strong> ${{product.price | number: '1.2-2'}}</strong></p>
+				</div>
+		</div>
+	</div>
+</div>
+<!--modal end -->
