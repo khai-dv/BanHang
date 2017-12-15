@@ -12,6 +12,7 @@ import { AlertService } from '../services/alert.service';
 
 export class SidebarComponent implements OnInit {
   public products: IProduct[];
+  public singleCarouselProducts: any = [];
 
   constructor(private router: Router,
     private productService: ProductService,
@@ -22,6 +23,11 @@ export class SidebarComponent implements OnInit {
       .subscribe(products => {
         // set items to json response
         this.products = products;
+        this.singleCarouselProducts = products.filter((value, index) => {
+          if (index < 10) {
+            return value;
+          }
+        });
       },
       error => {
         this.alertService.error(error);

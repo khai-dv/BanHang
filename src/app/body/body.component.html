@@ -10,28 +10,36 @@
 						<img style="width:100%" src="assets/img/carousel1.png" alt="bootstrap ecommerce templates">
 						<div class="carousel-caption">
 							<h4>Bootstrap shopping cart</h4>
-							<p><span>Very clean simple to use</span></p>
+							<p>
+								<span>Very clean simple to use</span>
+							</p>
 						</div>
 					</div>
 					<div class="item">
 						<img style="width:100%" src="assets/img/carousel2.png" alt="bootstrap ecommerce templates">
 						<div class="carousel-caption">
 							<h4>Bootstrap Ecommerce template</h4>
-							<p><span>Highly Google seo friendly</span></p>
+							<p>
+								<span>Highly Google seo friendly</span>
+							</p>
 						</div>
 					</div>
 					<div class="item active">
 						<img style="width:100%" src="assets/img/carousel3.png" alt="bootstrap ecommerce templates">
 						<div class="carousel-caption">
 							<h4>Twitter Bootstrap cart</h4>
-							<p><span>Very easy to integrate and expand.</span></p>
+							<p>
+								<span>Very easy to integrate and expand.</span>
+							</p>
 						</div>
 					</div>
 					<div class="item">
 						<img style="width:100%" src="assets/img/carousel4.png" alt="bootstrap templates">
 						<div class="carousel-caption">
 							<h4>Bootstrap templates integration</h4>
-							<p><span>Compitable to many more opensource cart</span></p>
+							<p>
+								<span>Compitable to many more opensource cart</span>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -47,13 +55,16 @@
 			<div class="row-fluid">
 				<div id="newProductCar" class="carousel slide">
 					<div class="carousel-inner">
-						<div class="item" *ngFor="let x of products; let i=index" ng-if="i % 4 == 0">
+						<div class="item" *ngFor="let x of newProducts; let i=index">
 							<ul class="thumbnails">
-								<li class="span3" *ngFor="let pro of [products[i],products[i+1],products[i+2],products[i+3]]">
+								<li class="span3" *ngFor="let pro of [products[i*4],products[i*4+1],products[i*4+2],products[i*4+3]]">
 									<div class="thumbnail" *ngIf="pro">
-										<a class="zoomTool" routerLink="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> XEM NGAY</a>
+										<a class="zoomTool" routerLink="/products/{{pro.product_id}}" title="add to cart">
+											<span class="icon-search"></span> QUICK VIEW</a>
 										<a href="#" class="tag"></a>
-										<a routerLink="/products/{{pro.product_id}}"><img src="{{pro.imageUrl}}" alt="bootstrap-ring"></a>
+										<a routerLink="/products/{{pro.product_id}}">
+											<img src="{{pro.imageUrl}}" alt="bootstrap-ring">
+										</a>
 									</div>
 								</li>
 							</ul>
@@ -65,32 +76,40 @@
 			</div>
 		</div>
 
-		<!--Sản phẩm nổi bật-->
 		<div class="well well-small">
-			<h3><a class="btn btn-mini pull-right" routerLink="/productlist" title="View more">Nhiều hơn<span class="icon-plus"></span></a>Sản phẩm nổi bật </h3>
+			<h3>
+				<a class="btn btn-mini pull-right" routerLink="four-col" title="View more">VIew More
+					<span class="icon-plus"></span>
+				</a>Featured Products </h3>
 			<hr class="soften" />
 			<div class="row-fluid">
 				<ul class="thumbnails">
-					<div *ngFor="let pro of products; let i=index">
-						<div *ngIf="i<3">
-							<li class="span4">
-								<div class="thumbnail">
-									<a class="zoomTool" routerLink="/products/{{pro.product_id}}" title="add to cart"><span class="icon-search"></span> XEM NGAY</a>
-									<a routerLink="/products/{{pro.product_id}}"><img src="{{pro.imageUrl}}" alt=""></a>
-									<div class="caption">
-										<h5>{{pro.product_name}}</h5>
-										<h4>
-											<a class="defaultBtn" routerLink="/products/{{pro.product_id}}" title="Click to view"><span class="icon-zoom-in"></span></a>
-											<a class="shopBtn" (click)="addCart(pro.product_id)" title="add to cart"><span class="icon-plus"></span></a>
-											<span class="pull-right">${{pro.price | number: '1.2-2'}}</span>
-										</h4>
-									</div>
+					<div *ngFor="let pro of featuredProducts; let i=index">
+						<li class="span4">
+							<div class="thumbnail">
+								<a class="zoomTool" routerLink="/products/{{pro.product_id}}" title="add to cart">
+									<span class="icon-search"></span> QUICK VIEW</a>
+								<a routerLink="/products/{{pro.product_id}}">
+									<img src="{{pro.imageUrl}}" alt="">
+								</a>
+								<div class="caption">
+									<h5>{{pro.product_name}}</h5>
+									<h4>
+										<a class="defaultBtn" routerLink="/products/{{pro.product_id}}" title="Click to view">
+											<span class="icon-zoom-in"></span>
+										</a>
+										<a class="shopBtn" href="#" title="add to cart">
+											<span class="icon-plus"></span>
+										</a>
+										<span class="pull-right">${{pro.price | number: '1.2-2'}}</span>
+									</h4>
 								</div>
-							</li>
-						</div>
+							</div>
+						</li>
 					</div>
 				</ul>
 			</div>
 		</div>
-
 	</div>
+
+</div>

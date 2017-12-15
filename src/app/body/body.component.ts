@@ -18,14 +18,16 @@ import { AppGlobals } from '../app.globals';
 
 export class BodyComponent {
     public products: IProduct[];
+    public newProducts: any = [];
+    public featuredProducts: any = [];
     pro_carts: ICart[];
 
     constructor(private router: Router,
         private productService: ProductService,
-        private _cartService: CartshopService,
         private alertService: AlertService,
-        public mygb: AppGlobals) {
-        // this.mygb.shareObj['namepage'] = 'index';
+        private _cartService: CartshopService) {
+
+
     }
 
     ngOnInit(): void {
@@ -33,7 +35,20 @@ export class BodyComponent {
             .subscribe(products => {
                 // set items to json response
                 this.products = products;
-            }, error => { this.alertService.error(error); });
+                this.newProducts = products.filter((value, index) => {
+                    if (index < 12 && index % 4 === 0) {
+                        return value;
+                    }
+                });
+                this.featuredProducts = products.filter((value, index) => {
+                    if (index < 3) {
+                        return value;
+                    }
+                });
+            },
+            error => {
+                this.alertService.error(error);
+            });
 
         this._cartService.getItems()
             .subscribe(pro_carts => {
@@ -50,7 +65,7 @@ export class BodyComponent {
         var cart_arr = this.pro_carts[index];
 
         cart_arr.product_id = pro_arr.product_id;
-        cart_arr.product_name = pro_arr.product_name;	
+        cart_arr.product_name = pro_arr.product_name;
         cart_arr.price = pro_arr.price;
         cart_arr.imageUrl = pro_arr.imageUrl;
         cart_arr.product_detail = pro_arr.product_detail;
@@ -61,10 +76,10 @@ export class BodyComponent {
             .subscribe(res => {
                 // console.log(cart_arr)
                 if (res) { }
-            alert("Đã thêm thành công vào giỏ hàng")
-        })
+                alert("Đã thêm thành công vào giỏ hàng")
+            })
 
         // window.location.reload();
-    } 
+    }
 
 }
