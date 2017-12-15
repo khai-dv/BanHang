@@ -62,7 +62,6 @@ export class ProductFavoriteComponent implements OnInit {
             .subscribe(res => {
                 // console.log(cart_arr)
                 if (res) { }
-            alert("Đã thêm thành công vào giỏ hàng")
         })
 
         // window.location.reload();

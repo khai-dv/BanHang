@@ -2,84 +2,68 @@
 	<app-sidebar></app-sidebar>
 	<div class="span9">
 		<ul class="breadcrumb">
-			<li><a [routerLink]="['/home']">Home</a> <span class="divider">/</span></li>
-			<li><a [routerLink]="['/productlist']">Items</a> <span class="divider">/</span></li>
-			<li class="active">Preview</li>
+			<li><a [routerLink]="['/home']">Trang chủ</a> <span class="divider">/</span></li>
+			<li><a [routerLink]="['/productlist']">Tất cả sản phẩm</a> <span class="divider">/</span></li>
+			<li class="active">{{product.product_name}} </li>
 		</ul>
 		<div class="well well-small">
 			<div class="row-fluid">
 				<div class="span5">
-					<!-- <div id="myCarousel" class="carousel slide cntr">
-						<div class="carousel-inner"> -->
-							<div class="item active">
-								<a href="#">
-									<img src="{{product.imageUrl}}" alt="" style="width:100%">
-								</a>
-							</div>
-							<!-- <div class="item">
-								<a href="#">
-									<img src="assets/img/b.jpg" alt="" style="width:100%">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="assets/img/e.jpg" alt="" style="width:100%">
-								</a>
-							</div> -->
-						<!-- </div>
-						<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-						<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-					</div> -->
+					<div class="item active"><img src="{{product.imageUrl}}" alt="" style="width:100%"></div>
 				</div>
 				<div class="span7">
-					<h3>{{product.product_name}} [${{product.price | number: '1.2-2'}}]</h3>
+					<h3>{{product.product_name}}</h3>
 					<hr class="soft" />
-
 					<form class="form-horizontal qtyFrm">
 						<div class="control-group">
 							<label class="control-label">
 								<span>${{product.price | number: '1.2-2'}}</span>
 							</label>
 							<div class="controls">
-								<input type="number" class="span6" placeholder="Qty.">
+								<input type="number" class="span6" value="1">
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">
-								<span>Color</span>
+								<span>Màu</span>
 							</label>
 							<div class="controls">
 								<select class="span11">
-									<option>Red</option>
-									<option>Purple</option>
-									<option>Pink</option>
-									<option>Red</option>
+									<option>Đỏ</option>
+									<option>Xanh</option>
+									<option>Đen</option>
+									<option>Vàng</option>
 								</select>
 							</div>
 						</div>
-						<div class="control-group">
-							<label class="control-label">
-								<span>Materials</span>
-							</label>
-							<div class="controls">
-								<select class="span11">
-									<option>Material 1</option>
-									<option>Material 2</option>
-									<option>Material 3</option>
-									<option>Material 4</option>
-								</select>
-							</div>
-						</div>
-						<h4>Product Information</h4>
-						<p>{{product.product_detail}}
-							<p>
-								<button type="submit" class="shopBtn">
-									<span class=" icon-shopping-cart"></span> Add to cart</button>
+						<h4>Giới thiệu sản phẩm</h4>
+						<p>{{product.product_detail}}</p>
+						<button (click)="addCart(product.product_id)" class="shopBtn" data-toggle="modal" data-target="#myModal">
+							<span class=" icon-shopping-cart"></span>Thêm giỏ hàng</button>
 					</form>
 				</div>
 			</div>
 			<hr class="softn clr" />
 		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Thông báo</h4>
+					</div>
+					<div class="modal-body">
+						<p>Đã thêm thành công vào giỏ hàng</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 	<!-- <router-outlet></router-outlet> -->
 </div>

@@ -33,7 +33,7 @@ export class LoginComponent implements OnDestroy  {
     ) { }
 
      CheckLogin(value: any) {
-       if(document.getElementById('model_loggin').innerHTML=="Sign in") {
+       if(document.getElementById('model_loggin').innerHTML=="Đăng nhập") {
             this.usertrue=false;
             for (let us of this.users){
                 if (value.username==us.username&&value.password==us.password){

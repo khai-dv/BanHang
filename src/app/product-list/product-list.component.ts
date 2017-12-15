@@ -72,7 +72,6 @@ export class ProductListComponent implements OnInit {
             .subscribe(res => {
                 // console.log(cart_arr)
                 if (res) { }
-            alert("Đã thêm thành công vào giỏ hàng")
         })
         
 

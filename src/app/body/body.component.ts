@@ -25,10 +25,7 @@ export class BodyComponent {
     constructor(private router: Router,
         private productService: ProductService,
         private alertService: AlertService,
-        private _cartService: CartshopService) {
-
-
-    }
+        private _cartService: CartshopService) {}
 
     ngOnInit(): void {
         this.productService.getItems()
@@ -74,9 +71,7 @@ export class BodyComponent {
 
         this._cartService.addItem(cart_arr)
             .subscribe(res => {
-                // console.log(cart_arr)
                 if (res) { }
-                alert("Đã thêm thành công vào giỏ hàng")
             })
 
         // window.location.reload();

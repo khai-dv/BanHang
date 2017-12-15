@@ -33,10 +33,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.LoadData();
-    // this.Money = 0;
-    // for(var i = 0; i< this.TotalItem ;i++){
-    //       this.Money = this.Money + this.pro_carts[i].total;
-    // }
   }
 
   LoadData(){
