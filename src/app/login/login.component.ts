@@ -33,19 +33,25 @@ export class LoginComponent implements OnDestroy  {
     ) { }
 
      CheckLogin(value: any) {
-       if(document.getElementById('model_loggin').innerHTML=="Đăng nhập") {
+       if(this.username!="") {
             this.usertrue=false;
-            for (let us of this.users){
-                if (value.username==us.username&&value.password==us.password){
-                    this.usertrue=true;
-                    this.username=us.username;
-                    alert("Sign in successful");
-                    
+            if(value.username=="admin"&&value.password=="admin"){
+                document.getElementById("admin").style.visibility = "visible";
+                this.usertrue=true;
+                this.username="admin";
+                alert("Đăng nhập thành công!");
+            }else{
+                for (let us of this.users){
+                    if (value.username==us.username&&value.password==us.password){
+                        this.usertrue=true;
+                        this.username=us.username;
+                        alert("Đăng nhập thành công!");
+                    }
                 }
-            }
-            if (this.usertrue==false){
-                alert("Tài khoản không tồn tại!");
-            }
+                if (this.usertrue==false){
+                    alert("Tài khoản không tồn tại!");
+                }
+            }    
         }
         else{
             this.username="";
