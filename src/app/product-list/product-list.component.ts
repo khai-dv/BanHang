@@ -36,27 +36,19 @@ export class ProductListComponent implements OnInit {
                 this.products = products;
              }, error => {this.alertService.error(error);});
 
-        this._cartService.getItems()
-            .subscribe(pro_carts => {
-                this.pro_carts = pro_carts;
-            }, error => { this.alertService.error(error); });
+        // this._cartService.getItems()
+        //     .subscribe(pro_carts => {
+        //         this.pro_carts = pro_carts;
+        //     }, error => { this.alertService.error(error); });
     }
-    // public viewDetails(id:number){
 
-    //     let navigationExtras: NavigationExtras = {
-    //         queryParams: {
-    //             "itemsearch": id,
-    //         }
-    //       };
-    //       this.router.navigate(["productDetails"], navigationExtras); 
-    // }
     addCart(id: number) {
         var index = this.products.map(item => {
             return item.product_id;
         }).indexOf(id);
-
+        
         var pro_arr = this.products[index];
-        var cart_arr = this.pro_carts[index];
+        var cart_arr :any={};
 
         cart_arr.product_id = pro_arr.product_id;
         cart_arr.product_name = pro_arr.product_name;	

@@ -35,21 +35,16 @@ export class ProductFavoriteComponent implements OnInit {
             .subscribe(products => {
                 this.products = products;
             }, error => { this.alertService.error(error); });
-
-        this._cartService.getItems()
-            .subscribe(pro_carts => {
-                this.pro_carts = pro_carts;
-            }, error => { this.alertService.error(error); });
     }
 
     addCart(id: number) {
         var index = this.products.map(item => {
             return item.product_id;
         }).indexOf(id);
-
+        
         var pro_arr = this.products[index];
-        var cart_arr = this.pro_carts[index];
-
+        var cart_arr :any={};
+        
         cart_arr.product_id = pro_arr.product_id;
         cart_arr.product_name = pro_arr.product_name;	
         cart_arr.price = pro_arr.price;
@@ -60,13 +55,8 @@ export class ProductFavoriteComponent implements OnInit {
 
         this._cartService.addItem(cart_arr)
             .subscribe(res => {
-                // console.log(cart_arr)
                 if (res) { }
         })
-
-        // window.location.reload();
-        // this.router.navigate(['/header']);
-        // this.mygb.shareObj['namepage']='index';
     } 
 
     getProduct(id: number) {

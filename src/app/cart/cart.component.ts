@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   Money:number=0;
   total:number;
   pduct:any={};
-
+  
   constructor(private _cartService: CartshopService,
     public mygb: AppGlobals) {
     this.mygb.shareObj['namepage'] = 'cart';
@@ -49,7 +49,7 @@ export class CartComponent implements OnInit {
       },
       error => this.errorMessage = <any>error);
 
-     
+      
   }
   // -------------------------------------------------
   
