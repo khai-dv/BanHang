@@ -19,7 +19,7 @@
             </td>
             <td> <p >${{pro.price | number: '1.2-2'}}</p></td>
             <td><div class="controls">	
-              <input type="number" class="span1" value="{{pro.quality}}" #textAmount (click)="Cash(textAmount.value, pro.price, pro.product_id)">
+              <input type="number" min="1" class="span1" value="{{pro.quality}}" #textAmount (click)="Cash(textAmount.value, pro.price, pro.product_id)">
               </div> </td>
             <td> ${{ pro.price * textAmount.value | number: '1.2-2'}}</td>
             <td><button class="btn btn-xs" type="button" (click)="Delete(pro.product_id)"><span class="icon-trash"></span></button></td>

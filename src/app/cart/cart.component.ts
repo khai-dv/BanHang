@@ -60,6 +60,14 @@ export class CartComponent implements OnInit {
                 this.LoadData();
             }
         })
+    
+    var index = this.pro_carts.map(item =>{
+      return item.product_id;
+    }).indexOf(id);
+    this.Money= this.Money-this.pro_carts[index].total;
+    this.TotalItem=this.TotalItem -1
+    document.getElementById('TCart').innerHTML= (this.TotalItem).toString();
+    document.getElementById('TCurrency').innerHTML="$"+ (this.Money.toFixed(2)).toString();
   }
 
   Cash(amount:number, price:number, id: number){
@@ -68,7 +76,7 @@ export class CartComponent implements OnInit {
     var index = this.pro_carts.map(item =>{
       return item.product_id;
     }).indexOf(id);
-
+    
     var cart_arr = this.pro_carts[index];
     console.log(cart_arr);
 
@@ -86,5 +94,6 @@ export class CartComponent implements OnInit {
       console.log(cart_arr)
         if(res){}
     })
+    document.getElementById('TCurrency').innerHTML="$"+ (this.Money.toFixed(2)).toString();
   }
 }
