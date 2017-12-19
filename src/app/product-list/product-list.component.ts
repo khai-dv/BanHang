@@ -46,7 +46,8 @@ export class ProductListComponent implements OnInit {
                 for(let i of pro_carts){
                   this.Money = this.Money + i.total;
                 }     
-            }, error => { this.alertService.error(error); }); 
+            }, error => { this.alertService.error(error); 
+        }); 
     }
 
     addCart(id: number) {
@@ -64,21 +65,14 @@ export class ProductListComponent implements OnInit {
         cart_arr.product_detail = pro_arr.product_detail;
         cart_arr.quality = 1;
         cart_arr.total = pro_arr.price;
-
-        console.log(pro_arr);
-        console.log(cart_arr);
+        
         this._cartService.addItem(cart_arr)
             .subscribe(res => {
-                // console.log(cart_arr)
                 if (res) { }
         })
         this.Total=this.Total+1
         this.Money=this.Money+pro_arr.price;
         document.getElementById('TCart').innerHTML= (parseInt(document.getElementById('TCart').innerHTML)+1).toString();
         document.getElementById('TCurrency').innerHTML="$"+ (this.Money.toFixed(2)).toString();
-
-        // window.location.reload();
-        // this.router.navigate(['/header']);
-        // this.mygb.shareObj['namepage']='index';
     } 
 }

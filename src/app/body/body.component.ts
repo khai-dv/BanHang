@@ -21,6 +21,8 @@ export class BodyComponent {
     public newProducts: any = [];
     public featuredProducts: any = [];
     pro_carts: ICart[];
+    Total:number;
+    Money:number;
 
     constructor(private router: Router,
         private productService: ProductService,
@@ -50,7 +52,13 @@ export class BodyComponent {
         this._cartService.getItems()
             .subscribe(pro_carts => {
                 this.pro_carts = pro_carts;
-            }, error => { this.alertService.error(error); });
+                this.Total=pro_carts.length;
+                this.Money = 0;
+                for(let i of pro_carts){
+                  this.Money = this.Money + i.total;
+                }     
+            }, error => { this.alertService.error(error); 
+        });
     }
 
     addCart(id: number) {
@@ -59,7 +67,7 @@ export class BodyComponent {
         }).indexOf(id);
 
         var pro_arr = this.products[index];
-        var cart_arr = this.pro_carts[index];
+        var cart_arr :any={};
 
         cart_arr.product_id = pro_arr.product_id;
         cart_arr.product_name = pro_arr.product_name;
@@ -74,7 +82,11 @@ export class BodyComponent {
                 if (res) { }
             })
 
-        // window.location.reload();
+        this.Total=this.Total+1
+        this.Money=this.Money+pro_arr.price;
+        document.getElementById('TCart').innerHTML= (parseInt(document.getElementById('TCart').innerHTML)+1).toString();
+        document.getElementById('TCurrency').innerHTML="$"+ (this.Money.toFixed(2)).toString();
+        
     }
 
 }

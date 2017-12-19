@@ -32,6 +32,7 @@ export class ProductFavoriteComponent implements OnInit {
         public mygb: AppGlobals) {
         this.mygb.shareObj['namepage'] = 'productfavorite';
     }
+    
     ngOnInit(): void {
         this.productService.getItems()
             .subscribe(products => {
@@ -46,7 +47,8 @@ export class ProductFavoriteComponent implements OnInit {
                 for(let i of pro_carts){
                   this.Money = this.Money + i.total;
                 }     
-            }, error => { this.alertService.error(error); });    
+            }, error => { this.alertService.error(error); 
+        });    
     }
 
     addCart(id: number) {

@@ -33,20 +33,20 @@
 	</li>
 	
 	<!--Sign Out-->
-	<li *ngIf="usertrue" class="dropdown">
-		<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-			<span class="icon-lock" id="login"></span> {{username}}
-			<b class="caret"></b>
-		</a>
-		<ul class="dropdown-menu">
-			<li style="text-align: left;"><a>Đăng nhập bởi <strong> <i>{{username}}</i></strong></a></li>
-			<li class="divider"></li>
-			<li style="text-align: left;"><a>Thông tin của bạn</a></li>
-			<li style="text-align: left;"><a routerLink="cart">Giỏ hàng của bạn</a></li>
-			<li class="divider"></li>
-			<li style="text-align: left;"><a >Hỗ trợ</a></li>
-			<li style="text-align: left;"><a >Cài đặt</a></li>
-			<li style="text-align: left;"><a href="">Đăng xuất</a></li>
-		</ul>
-	</li>
+		<li *ngIf="usertrue" class="dropdown">
+			<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+				<span class="icon-lock" id="login"></span> {{username}}
+				<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<li style="text-align: left;"><a>Đăng nhập bởi <strong> <i>{{username}}</i></strong></a></li>
+				<li class="divider"></li>
+				<li style="text-align: left;"><a (click)="SystemError()"> Thông tin của bạn</a></li>
+				<li style="text-align: left;"><a routerLink="cart">Giỏ hàng của bạn</a></li>
+				<li class="divider"></li>
+				<li style="text-align: left;"><a (click)="SystemError()">Hỗ trợ</a></li>
+				<li style="text-align: left;"><a (click)="SystemError()">Cài đặt</a></li>
+				<li style="text-align: left;"><a href="">Đăng xuất</a></li>
+			</ul>
+		</li>
 </ul>

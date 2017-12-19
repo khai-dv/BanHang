@@ -11,7 +11,7 @@ import { HomeComponent } from './home/index';
 import { FooterComponent, ClientsComponent  } from './footer/index';
 import { HeaderComponent, UpperComponent } from './header/index';
 import { AboutUsComponent } from './about-us/index';
-import { ProductComponent, FourColComponent, TypeProductComponent , GeneralContentComponent } from './products/index';
+import { ProductComponent, TypeProductComponent , GeneralContentComponent } from './products/index';
 import { ProductDetailsComponent } from './product-details/index';
 import { CartComponent } from './cart/index';
 import { ProductListComponent } from './product-list/index';
@@ -22,7 +22,6 @@ import { SearchComponent } from './search/index';
 import { AppGlobals } from './app.globals';
 import { ProductFilterPipe } from './search/index';
 import { LoginComponent } from './login/index';
-import { CartshopComponent } from './cartshop/index';
 import { AdminComponent } from './admin/index';
 import { ProductFavoriteComponent } from './product-favorite/index';
 
@@ -50,7 +49,6 @@ let providers = {
     AboutUsComponent,
     ProductComponent, 
     ProductListComponent,
-    FourColComponent,
     ProductDetailsComponent,
     TypeProductComponent,
     CartComponent,
@@ -62,7 +60,6 @@ let providers = {
     ProductFilterPipe,
 	  LoginComponent,
     GeneralContentComponent,
-    CartshopComponent,
     AdminComponent,
     ProductFavoriteComponent,
   ],

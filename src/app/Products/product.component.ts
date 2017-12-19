@@ -9,12 +9,5 @@ import { ProductDetailsComponent } from '../product-details/product-details.comp
 
 export class ProductComponent {  
     @Input() product: IProduct;
-    
-    // @ViewChild(ProductDetailsComponent)
-    // private productDetails: ProductDetailsComponent;
-
-    // ViewProduct(product_id:number){
-    //     this.productDetails.getProduct(product_id);
-    // }
 }
 

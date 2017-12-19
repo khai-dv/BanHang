@@ -24,7 +24,9 @@ export class ProductDetailsComponent implements OnInit {
     public product: any = {};
     public productID: number;
     errorMessage: string;
-
+    Total:number;
+    Money:number;
+    
     products: IProduct[];
     pro_carts: ICart[];
 
@@ -61,8 +63,14 @@ export class ProductDetailsComponent implements OnInit {
 
         this._cartService.getItems()        
         .subscribe(pro_carts => {                
-            this.pro_carts = pro_carts;               
-        },error => this.errorMessage = <any>error);                                                                                                                                                                                 
+            this.pro_carts = pro_carts;  
+            this.Total=pro_carts.length;
+            this.Money = 0;
+            for(let i of pro_carts){
+              this.Money = this.Money + i.total;
+            }                
+        },error => this.errorMessage = <any>error); 
+        
     }
 
     addCart(id: number) {
@@ -71,9 +79,8 @@ export class ProductDetailsComponent implements OnInit {
         }).indexOf(id);
 
         var pro_arr = this.products[index];
-        var cart_arr = this.pro_carts[index];
-        console.log(pro_arr);
-        console.log(cart_arr);
+        var cart_arr :any={};
+        
         cart_arr.product_id = pro_arr.product_id;
         cart_arr.product_name = pro_arr.product_name;	
         cart_arr.price = pro_arr.price;
@@ -87,6 +94,9 @@ export class ProductDetailsComponent implements OnInit {
                 if (res) { }
         })
 
-        // window.location.reload();
+        this.Total=this.Total+1
+        this.Money=this.Money+pro_arr.price;
+        document.getElementById('TCart').innerHTML= (parseInt(document.getElementById('TCart').innerHTML)+1).toString();
+        document.getElementById('TCurrency').innerHTML="$"+ (this.Money.toFixed(2)).toString();
     } 
 }
